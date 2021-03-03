@@ -1,8 +1,8 @@
 import React from "react";
-import AppLogo from '../../assets/Logo-white.svg';
+import AppLogo from '../../../assets/Logo-white.svg';
 import './Header.css';
 // Components
-import CircleButton from '../element/CircleButton';
+import CircleButton from '../../element/circle-button/CircleButton';
 
 const icon = {
   search: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjg1NzIgMTcuMTQyOUMxNS4yNzU1IDE3LjE0MjkgMTguODU3MiAxMy41NjExIDE4Ljg1NzIgOS4xNDI4NkMxOC44NTcyIDQuNzI0NTggMTUuMjc1NSAxLjE0Mjg2IDEwLjg1NzIgMS4xNDI4NkM2LjQzODkgMS4xNDI4NiAyLjg1NzE4IDQuNzI0NTggMi44NTcxOCA5LjE0Mjg2QzIuODU3MTggMTMuNTYxMSA2LjQzODkgMTcuMTQyOSAxMC44NTcyIDE3LjE0MjlaIiBzdHJva2U9IiNGOUY5RjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMC44NTk1IDE5LjE0MjhMMTYuNTA5NSAxNC43OTI4IiBzdHJva2U9IiNGOUY5RjkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",

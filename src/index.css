@@ -1,3 +1,27 @@
+/*
+| --------------------------------------------------------------------------------
+| Fonts
+| --------------------------------------------------------------------------------
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap");
+
+/*
+| --------------------------------------------------------------------------------
+| Custom properties
+| --------------------------------------------------------------------------------
+*/
+
+:root {
+  --mainColor: #E83F5B;
+}
+
+/*
+| --------------------------------------------------------------------------------
+| Critical
+| --------------------------------------------------------------------------------
+*/
+
 * {
   position: relative;
   box-sizing: border-box;
@@ -5,23 +29,70 @@
   padding: 0;
 }
 
-html,
-body {
+html {
   width: 100%;
   height: 100%;
+  font-size: 10px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    font-size: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Ubuntu", sans-serif, -apple-system, BlinkMacSystemFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    180deg,
+    var(--mainColor) 0,
+    var(--mainColor) 328px,
+    #fff 328px,
+    #fff 100%
+  );
+  background-attachment: local;
 }
+
+/*
+| --------------------------------------------------------------------------------
+| App
+| --------------------------------------------------------------------------------
+*/
 
 #appRoot {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  padding: 0 20px;
+  max-width: 1000px;
+}
+
+/*
+| --------------------------------------------------------------------------------
+| Utils
+| --------------------------------------------------------------------------------
+*/
+
+.u-srOnly {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+| --------------------------------------------------------------------------------
+| Multi resolution
+| --------------------------------------------------------------------------------
+*/
+
+@media screen and (min-width: 768px) {
+  #appRoot {
+  width: 100%;
+}
 }

@@ -5,13 +5,13 @@ export class Movie {
     backdrop_path: string;
     favorite?: boolean;
 
-    constructor(
-        id: number,
-        title: string,
-        poster_path: string,
-        backdrop_path: string,
+    constructor({
+        id,
+        title,
+        poster_path,
+        backdrop_path,
         favorite = false
-    ) {
+    }: Movie) {
         this.id = id;
         this.title = title;
         this.poster_path = poster_path;

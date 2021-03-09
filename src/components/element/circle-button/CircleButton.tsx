@@ -1,47 +1,16 @@
-import styled from "styled-components";
+import React from 'react';
+import { BaseButton } from './styles';
 
 interface CircleButtonProps {
-    icon: string,
+    children: React.ReactNode,
     text: string
 }
 
-interface BaseButtonProps {
-    icon: string
-}
-
-const BaseButton = styled.button<BaseButtonProps>`
-    background-color: transparent;
-    border: 0;
-
-    &:focus {
-        outline: 0;
-    }
-
-    .srOnly {
-        position: absolute;
-        overflow: hidden;
-        width: 0;
-        height: 0;
-    }
-
-    &::before {
-    display: block;
-    content: "";
-    width: 40px;
-    height: 40px;
-    background-image: url(${props => props.icon});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto 60%;
-    }
-`;
-
-const CircleButton = ({icon, text}: CircleButtonProps) => {
+export const CircleButton = ({children, text}: CircleButtonProps) => {
     return (
-        <BaseButton icon={icon}>
+        <BaseButton>
+            {children}
             <span className="srOnly">{text}</span>
         </BaseButton>
     );
 }
-
-export default CircleButton;

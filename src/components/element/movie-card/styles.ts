@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BsHeartFill } from "react-icons/bs";
-import { MdBrokenImage } from "react-icons/md";
 
 const SrOnly = `
     position: absolute;
@@ -10,12 +9,13 @@ const SrOnly = `
 `;
 
 export const Container = styled.article`
+    flex: none;
+    margin-right: 10px;
     width: 105px;
     height: 157px;
     border-radius: 10px;
     overflow: hidden;
     background-color: gray;
-    background-image: ${MdBrokenImage.toString()}
 `;
 
 export const Heading = styled.h3`

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { BsHeartFill } from "react-icons/bs"
+import { BsHeartFill } from "react-icons/bs";
+import { MdBrokenImage } from "react-icons/md";
 
 const SrOnly = `
     position: absolute;
@@ -9,11 +10,12 @@ const SrOnly = `
 `;
 
 export const Container = styled.article`
-    cursor: pointer;
     width: 105px;
     height: 157px;
     border-radius: 10px;
     overflow: hidden;
+    background-color: gray;
+    background-image: ${MdBrokenImage.toString()}
 `;
 
 export const Heading = styled.h3`
@@ -33,6 +35,7 @@ export const CardPoster = styled.img`
 `;
 
 export const HeartIcon = styled(BsHeartFill)`
+cursor: pointer;
     position: absolute;
     width: 15px;
     height: 15px;

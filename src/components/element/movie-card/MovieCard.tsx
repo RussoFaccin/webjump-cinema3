@@ -1,33 +1,29 @@
 import React, {useState} from 'react';
 import { Container, Heading, CardPoster, HeartIcon } from './styles';
+import { Movie } from 'models/Movie';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w154';
 
-interface Props {
-    id: string,
-    poster_path: string,
-    title: string,
-    is_favorite?: boolean
-}
-
-export const MovieCard = ({id: movieId, poster_path, title, is_favorite = false}: Props) => {
+export const MovieCard = ({id, title, poster_path: poster = '', favorite = false}: Movie) => {
     const [state, setState] = useState({
-        movieId,
-        is_favorite
+        id,
+        title,
+        poster,
+        favorite
     });
 
     const handleFavorite = () => {
         setState({
             ...state,
-            is_favorite: !state.is_favorite
+            favorite: !state.favorite
         });
     };
 
     return (
-        <Container onClick={handleFavorite}>
+        <Container>
             <Heading>{title}</Heading>
-            <CardPoster src={`${POSTER_URL}${poster_path}`}/>
-            <HeartIcon color={state.is_favorite ? '#e83f5b' : 'black'}/>
+            <CardPoster src={`${POSTER_URL}${state.poster}`}/>
+            <HeartIcon color={state.favorite ? '#e83f5b' : 'black'}  onClick={handleFavorite}/>
         </Container>
     )
 };

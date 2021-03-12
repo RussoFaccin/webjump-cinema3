@@ -3,6 +3,7 @@ import { Breakpoints } from 'enums/style';
 
 export const Container = styled.section`
     margin-top: 20px;
+    overflow: auto hidden;
 `;
 
 export const Heading = styled.h3`
@@ -18,6 +19,5 @@ export const Heading = styled.h3`
 `;
 
 export const ListContainer = styled.div`
-    display: flex;
-    overflow: hidden;
+    display: inline-flex;
 `;

@@ -10,12 +10,14 @@ const SrOnly = `
 
 export const Container = styled.article`
     flex: none;
-    margin-right: 10px;
     width: 105px;
     height: 157px;
     border-radius: 10px;
     overflow: hidden;
     background-color: gray;
+    :not(:last-of-type) {
+        margin-right: 10px;
+    }
 `;
 
 export const Heading = styled.h3`

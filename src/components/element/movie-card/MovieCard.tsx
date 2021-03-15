@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import { Container, Heading, CardPoster, HeartIcon } from './styles';
 import { Movie } from 'models/Movie';
 
-const POSTER_URL = 'https://image.tmdb.org/t/p/w154';
-
 export const MovieCard = ({id, title, poster_path: poster = '', favorite = false}: Movie) => {
     const [state, setState] = useState({
         id,
@@ -22,7 +20,7 @@ export const MovieCard = ({id, title, poster_path: poster = '', favorite = false
     return (
         <Container>
             <Heading>{title}</Heading>
-            <CardPoster src={`${POSTER_URL}${state.poster}`}/>
+            <CardPoster src={state.poster}/>
             <HeartIcon color={state.favorite ? '#e83f5b' : 'black'}  onClick={handleFavorite}/>
         </Container>
     )

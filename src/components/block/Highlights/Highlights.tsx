@@ -1,5 +1,5 @@
 import React from "react";
-import { Movie } from 'models/Movie';
+import { Movie } from "models/Movie";
 import {
   Container,
   CardPicture,
@@ -12,29 +12,23 @@ import {
 } from "./styles";
 
 interface Props {
-    movieList: [Movie, Movie, Movie];
+  movieList: Movie[]
 }
 
-export const Highlights = ({movieList}: Props) => {
+export const Highlights = ({ movieList }: Props) => {
   return (
     <Container>
       <CardMain>
-        <CardPicture
-          src={movieList[0].backdrop_path}
-          alt="ASD"
-        />
+        <CardPicture src={movieList[0].backdrop_path} alt="ASD" />
         <Description>
           <Title>{movieList[0].title}</Title>
-          <Text></Text>
+          <Text>{movieList[0].overview}</Text>
         </Description>
       </CardMain>
       <CardSecondary>
-        <CardPicture
-          src="https://image.tmdb.org/t/p/w1280/hJuDvwzS0SPlsE6MNFOpznQltDZ.jpg"
-          alt="ASD"
-        />
+        <CardPicture src={movieList[0].poster_path} alt="ASD" />
         <Description>
-          <Title>Raya and the Last Dragon</Title>
+          <Title>{movieList[1].title}</Title>
         </Description>
       </CardSecondary>
       <CardTertiary>
@@ -43,7 +37,7 @@ export const Highlights = ({movieList}: Props) => {
           alt="ASD"
         />
         <Description>
-          <Title>Raya and the Last Dragon</Title>
+          <Title>{movieList[2].title}</Title>
         </Description>
       </CardTertiary>
     </Container>

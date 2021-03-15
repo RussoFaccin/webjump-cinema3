@@ -3,7 +3,7 @@ import { Breakpoints } from 'enums/style';
 
 export const Container = styled.section`
     margin-top: 20px;
-    overflow: auto hidden;
+    overflow: hidden;
 `;
 
 export const Heading = styled.h3`

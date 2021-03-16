@@ -10,7 +10,7 @@ interface MovieListProps {
 
 export const MovieList = ({ title, movies }: MovieListProps) => {
   const tmpList = movies.map((movie, index) => {
-    return <MovieCard key={`movie.id_${index}`} {...movie} />;
+    return <MovieCard key={`${movie.id}_${index}`} {...movie} />;
   });
 
   return (

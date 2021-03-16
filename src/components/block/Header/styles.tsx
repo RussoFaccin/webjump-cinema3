@@ -8,9 +8,19 @@ interface HeaderChildProps {
 }
 
 export const HeaderElement = styled.header`
+    background-color: var(--mainColor);
+`;
+
+export const HeaderContent = styled.div`
     display: flex;
     align-items: center;
-    padding: 22px 0;
+    padding: 22px 20px;
+    max-width: 1000px;
+    margin: auto;
+    
+    @media screen and (min-width: ${Breakpoints.FULL}) {
+        padding: 22px 0;
+    }
 `;
 
 export const AppBrand = styled.a<HeaderChildProps>`

@@ -1,7 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Header, Footer } from "components/block";
+import { AppContent } from "./styles";
 
 const Home = () => {
-    return <h1>Home Page!</h1>
+  return (
+    <>
+      <Header />
+      <AppContent></AppContent>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;

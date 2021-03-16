@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 // Pages
-import Home from '../pages/Home';
+import {Home} from '../pages';
 
 const Routes = () => {
     return (

@@ -15,7 +15,7 @@ interface Props {
   movieList: Movie[]
 }
 
-export const Highlights = ({ movieList }: Props) => {
+const Highlights = ({ movieList }: Props) => {
   return (
     <Container>
       <CardMain>
@@ -43,3 +43,5 @@ export const Highlights = ({ movieList }: Props) => {
     </Container>
   );
 };
+
+export default Highlights;

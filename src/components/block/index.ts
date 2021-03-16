@@ -1,5 +1,5 @@
 import Header from "components/block/Header";
-import Highlights from "components/block/Highlights";
 import Footer from "components/block/Footer";
+import Highlights from "components/block/Highlights";
 
-export { Header, Highlights, Footer };
+export { Header, Footer, Highlights };

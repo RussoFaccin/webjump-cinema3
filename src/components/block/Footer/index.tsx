@@ -9,7 +9,7 @@ import {
   FooterLink
 } from "./styles";
 
-export const Footer = () => {
+const Footer = () => {
   return <FooterElement>
       <FooterBrand to="/">
           <FooterLogo />
@@ -24,3 +24,5 @@ export const Footer = () => {
       </FooterNav>
   </FooterElement>;
 };
+
+export default Footer;

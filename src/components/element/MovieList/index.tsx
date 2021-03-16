@@ -1,8 +1,8 @@
 import React from "react";
 import { Movie } from "models/Movie";
-import MovieCard from "components/element/movie-card";
-import ScrollDrag from 'components/element/scroll-drag';
-import { Container, Heading } from './styles';
+import { MovieCard } from "components/element";
+import ScrollDrag from "components/element/scroll-drag";
+import { Container, Heading } from "./styles";
 
 interface MovieListProps {
   title: string;

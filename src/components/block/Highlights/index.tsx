@@ -16,6 +16,10 @@ interface Props {
 }
 
 const Highlights = ({ movieList }: Props) => {
+  if (movieList.length === 0) {
+    return null;
+}
+
   return (
     <Container>
       <CardMain>

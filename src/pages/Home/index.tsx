@@ -2,12 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Header, Footer } from "components/block";
 import { AppContent } from "./styles";
 import { MovieList } from "components/element";
-import { Highlights } from 'components/block';
+import { Highlights } from "components/block";
 import { DataService } from "services/data";
 import { Movie } from "models/";
 
 const Home = () => {
-
   // Popular Movies
   const [popularMovies, setPopular] = useState<Movie[]>([]);
 
@@ -24,10 +23,19 @@ const Home = () => {
     setUpcoming(DataService.formatDataAPI(result));
   }, []);
 
+  // Now Playing Movies
+  const [nowPlayingMovies, setNowPlaying] = useState<Movie[]>([]);
+
+  const getNowPlayingMovies = useCallback(async () => {
+    const result = await DataService.getMovieList("now_playing");
+    setNowPlaying(DataService.formatDataAPI(result));
+  }, []);
+
   useEffect(() => {
     getPopularMovies();
-    getUpcomingMovies()
-  }, [getPopularMovies, getUpcomingMovies]);
+    getUpcomingMovies();
+    getNowPlayingMovies();
+  }, [getPopularMovies, getUpcomingMovies, getNowPlayingMovies]);
 
   return (
     <>
@@ -35,6 +43,7 @@ const Home = () => {
       <AppContent>
         <Highlights movieList={upcomingMovies} />
         <MovieList title="Populares" movies={popularMovies} />
+        <MovieList title="Em Exibição" movies={nowPlayingMovies} />
       </AppContent>
       <Footer />
     </>

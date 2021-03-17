@@ -6,16 +6,19 @@ import { DataService } from "services/data";
 import { Movie } from "models/";
 
 const Home = () => {
-  const [popularMovies, setPopular] = useState<Movie[]>([]);
 
-  useEffect(() => {
-    getPopularMovies();
-  });
+  // Popular Movies
+  
+  const [popularMovies, setPopular] = useState<Movie[]>([]);
 
   const getPopularMovies = useCallback(async () => {
     const result = await DataService.getMovieList("popular");
     setPopular(DataService.formatDataAPI(result));
   }, []);
+
+  useEffect(() => {
+    getPopularMovies();
+  }, [getPopularMovies]);
 
   return (
     <>

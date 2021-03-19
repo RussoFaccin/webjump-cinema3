@@ -6,4 +6,4 @@ export interface ContextType {
     toggleFavoriteList: Function;
 }
 
-export const FavoritesContext = React.createContext<ContextType | null>(null);
+export const FavoritesContext = React.createContext({} as ContextType);

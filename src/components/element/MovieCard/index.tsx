@@ -3,55 +3,44 @@ import { Container, Heading, CardPoster, HeartIcon } from "./styles";
 import { Movie } from "models/Movie";
 import { FavoritesContext } from "contexts/Favorites";
 
-const MovieCard = ({
-  id,
-  title,
-  poster_path: poster = "",
-  favorite = false,
-}: Movie) => {
-  const context = useContext(FavoritesContext);
+const MovieCard = ({ id, title, poster_path }: Movie) => {
+  const { favoriteMovies, toggleFavoriteList } = useContext(FavoritesContext);
 
-  const [state, setState] = useState({
+  const [state] = useState({
     id,
     title,
-    poster,
-    favorite,
+    poster_path,
   });
 
-  const toggleFavorite = () => {
-    setState({
-      ...state,
-      favorite: !state.favorite,
-    });
+  const [favorite, setFavorite] = useState(false);
 
-    if (context) {
-      context.toggleFavoriteList(state);
-    }
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
+    toggleFavoriteList(state);
   };
 
   const checkFavorite = useCallback(() => {
-    const found = context?.favoriteMovies.find((movie) => {
+    const found = favoriteMovies.find((movie) => {
       return movie.id === state.id;
     });
 
     if (found) {
-      setState({
-        ...state,
-        favorite: true,
-      });
+      setFavorite(true);
+    } else {
+      setFavorite(false);
     }
-  }, []);
+  }, [state.id, favoriteMovies]);
 
   useEffect(() => {
     checkFavorite();
-  }, [checkFavorite]);
+  }, [favoriteMovies, checkFavorite]);
 
   return (
     <Container>
       <Heading>{title}</Heading>
-      <CardPoster src={state.poster} alt={state.title} />
+      <CardPoster src={state.poster_path} alt={state.title} />
       <HeartIcon
-        color={state.favorite ? "#e83f5b" : "black"}
+        color={favorite ? "#e83f5b" : "black"}
         onClick={toggleFavorite}
       />
     </Container>

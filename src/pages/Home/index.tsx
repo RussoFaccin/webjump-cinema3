@@ -70,6 +70,7 @@ const Home = () => {
         >
           <MovieList title="Populares" movies={popularMovies} />
           <MovieList title="Em Exibição" movies={nowPlayingMovies} />
+          <MovieList title="Favoritos" movies={favoriteMovies} />
         </FavoritesContext.Provider>
       </AppContent>
       <Footer />

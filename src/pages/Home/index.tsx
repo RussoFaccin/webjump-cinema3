@@ -5,6 +5,7 @@ import { MovieList } from "components/element";
 import { Highlights } from "components/block";
 import { DataService } from "services/data";
 import { Movie } from "models/";
+import { FavoritesContext } from "contexts/Favorites";
 
 const Home = () => {
   // Popular Movies
@@ -31,19 +32,45 @@ const Home = () => {
     setNowPlaying(DataService.formatDataAPI(result));
   }, []);
 
+  // Favorites Movies
+  const [favoriteMovies, setFavorites] = useState<Movie[]>([]);
+
+  const toggleFavoriteList = (movie: Movie) => {
+    const tmpList = [...favoriteMovies];
+    const foundIndex = favoriteMovies.findIndex((movieEntry) => {
+      return movieEntry.id === movie.id;
+    });
+
+    if (foundIndex >= 0) {
+      tmpList.splice(foundIndex, 1);
+    } else {
+      tmpList.push(movie);
+    }
+    setFavorites(tmpList);
+  };
+
   useEffect(() => {
     getPopularMovies();
     getUpcomingMovies();
     getNowPlayingMovies();
-  }, [getPopularMovies, getUpcomingMovies, getNowPlayingMovies]);
+  }, [
+    getPopularMovies,
+    getUpcomingMovies,
+    getNowPlayingMovies,
+    favoriteMovies,
+  ]);
 
   return (
     <>
       <Header />
       <AppContent>
         <Highlights movieList={upcomingMovies} />
-        <MovieList title="Populares" movies={popularMovies} />
-        <MovieList title="Em Exibição" movies={nowPlayingMovies} />
+        <FavoritesContext.Provider
+          value={{ favoriteMovies, toggleFavoriteList }}
+        >
+          <MovieList title="Populares" movies={popularMovies} />
+          <MovieList title="Em Exibição" movies={nowPlayingMovies} />
+        </FavoritesContext.Provider>
       </AppContent>
       <Footer />
     </>

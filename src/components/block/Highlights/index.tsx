@@ -30,7 +30,7 @@ const Highlights = ({ movieList }: Props) => {
         </Description>
       </CardMain>
       <CardSecondary>
-        <CardPicture src={movieList[0].poster_path} alt="ASD" />
+        <CardPicture src={movieList[1].poster_path} alt="ASD" />
         <Description>
           <Title>{movieList[1].title}</Title>
         </Description>

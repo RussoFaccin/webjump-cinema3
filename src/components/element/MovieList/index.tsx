@@ -17,7 +17,7 @@ const MovieList = ({ title, movies }: MovieListProps) => {
   return (
     <Container>
       <Heading>{title}</Heading>
-      <ScrollDrag>{tmpList}</ScrollDrag>
+      <ScrollDrag>{tmpList.length > 0 ? tmpList : 'Nenhum filme na lista.'}</ScrollDrag>
     </Container>
   );
 };

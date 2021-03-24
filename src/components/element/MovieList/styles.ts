@@ -1,23 +1,23 @@
-import styled from 'styled-components';
-import { Breakpoints } from 'enums/style';
+import styled from "styled-components";
+import { Breakpoints } from "enums";
 
 export const Container = styled.section`
-    margin-top: 20px;
-    overflow: hidden;
+  margin-top: 20px;
+  overflow: hidden;
 `;
 
 export const Heading = styled.h3`
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--mainColor);
-    margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--mainColor);
+  margin-bottom: 10px;
 
-    @media screen and (min-width: ${Breakpoints.TABLET}) {
-        font-weight: 300;
-        font-size: 22px;
-    }
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    font-weight: 300;
+    font-size: 22px;
+  }
 `;
 
 export const ListContainer = styled.div`
-    display: inline-flex;
+  display: inline-flex;
 `;

@@ -5,24 +5,28 @@ import {
   FooterLogo,
   FooterHeading,
   FooterNav,
-  TxtSmall,
-  FooterLink
+  FooterLink,
+  StandardLink,
 } from "./styles";
 
 const Footer = () => {
-  return <FooterElement>
+  return (
+    <FooterElement>
       <FooterBrand to="/">
-          <FooterLogo />
-          <FooterHeading>Cinejump!</FooterHeading>
+        <FooterLogo />
+        <FooterHeading>Cinejump!</FooterHeading>
       </FooterBrand>
       <FooterNav>
-        <TxtSmall>Desenvolvido por Lucas Gabriel</TxtSmall>
+        <StandardLink href="http://www.rodrigorusso.com.br" target="blank">
+          Desnvolvido por Rodrigo Russo
+        </StandardLink>
         <FooterLink to="/">Proposta do projeto</FooterLink>
         <FooterLink to="/">Protótipo no Figma</FooterLink>
         <FooterLink to="/">Apresentação ao comitê</FooterLink>
         <FooterLink to="/">Documentação</FooterLink>
       </FooterNav>
-  </FooterElement>;
+    </FooterElement>
+  );
 };
 
 export default Footer;

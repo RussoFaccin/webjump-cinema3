@@ -1,14 +1,13 @@
 import { api, API_CONFIG } from "services/api";
 import { Movie } from "models";
+import { DataType } from './types';
 
-export class DataService {
-  static async getMovieList(urlKey: string) {
+export const Data: DataType = {
+  async getMovieList(urlKey) {
     const movieList = await api.get(`/${urlKey}`, API_CONFIG);
-
     return movieList.data.results;
-  }
-
-  static formatDataAPI(dataEntry: Movie[], qtyLimit = 0): Movie[] {
+  },
+  formatDataAPI(dataEntry, qtyLimit = 0): Movie[] {
     enum ImageSizes {
       BACKDROP = "w780",
       POSTER = "w342",
@@ -25,5 +24,5 @@ export class DataService {
     });
 
     return qtyLimit === 0 ? dataEntry : tmpList.slice(0, qtyLimit);
-  }
-}
+  },
+};

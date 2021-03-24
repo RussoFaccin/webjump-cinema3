@@ -8,7 +8,7 @@ import {
   AppLogo,
   AppTitle,
 } from "./styles";
-import CircleButton from "components/element/circle-button";
+import { CircleButton } from "components/element";
 import { CgProfile } from "react-icons/cg";
 import { BiSearch } from "react-icons/bi";
 

@@ -1,16 +1,12 @@
-import React from 'react';
-import { BaseButton } from './styles';
+import React from "react";
+import { Props } from "./types";
+import { BaseButton } from "./styles";
 
-interface CircleButtonProps {
-    children: React.ReactNode,
-    text: string
-}
-
-export const CircleButton = ({children, text}: CircleButtonProps) => {
-    return (
-        <BaseButton>
-            {children}
-            <span className="srOnly">{text}</span>
-        </BaseButton>
-    );
-}
+export const CircleButton = ({ children, text }: Props) => {
+  return (
+    <BaseButton>
+      {children}
+      <span className="srOnly">{text}</span>
+    </BaseButton>
+  );
+};

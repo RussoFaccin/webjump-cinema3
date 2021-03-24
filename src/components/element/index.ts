@@ -1,4 +1,3 @@
-import MovieList from "./MovieList";
-import MovieCard from './MovieCard';
-
-export { MovieCard, MovieList };
+export { default as MovieList } from "./MovieList";
+export { default as MovieCard } from "./MovieCard";
+export { default as ScrollDrag } from "./scroll-drag";

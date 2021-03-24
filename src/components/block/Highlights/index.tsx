@@ -1,5 +1,5 @@
 import React from "react";
-import { Movie } from "models/Movie";
+import { Props } from "./types";
 import {
   Container,
   CardPicture,
@@ -11,14 +11,10 @@ import {
   Text,
 } from "./styles";
 
-interface Props {
-  movieList: Movie[]
-}
-
 const Highlights = ({ movieList }: Props) => {
   if (movieList.length === 0) {
     return null;
-}
+  }
 
   return (
     <Container>

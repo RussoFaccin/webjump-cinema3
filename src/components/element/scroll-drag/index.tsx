@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Container } from "./styles";
+import { Props } from './types';
 
-interface Props {
-  children: React.ReactNode | React.ReactNode[];
-}
-
-export const ScrollDrag = ({ children }: Props) => {
+const ScrollDrag = ({ children }: Props) => {
   const [state, setState] = useState({
     isDragging: false,
     left: 0,
@@ -69,3 +66,5 @@ export const ScrollDrag = ({ children }: Props) => {
     </Container>
   );
 };
+
+export default ScrollDrag;

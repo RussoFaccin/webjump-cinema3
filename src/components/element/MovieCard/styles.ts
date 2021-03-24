@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BsHeartFill } from "react-icons/bs";
+import { Breakpoints } from 'enums/style';
 
 const SrOnly = `
     position: absolute;
@@ -15,6 +16,11 @@ export const Container = styled.article`
     border-radius: 10px;
     overflow: hidden;
     background-color: gray;
+
+    @media screen and (min-width: ${Breakpoints.TABLET}) {
+        width: 165px;
+        height: 253px;
+    }
     :not(:last-of-type) {
         margin-right: 10px;
     }
@@ -37,10 +43,17 @@ export const CardPoster = styled.img`
 `;
 
 export const HeartIcon = styled(BsHeartFill)`
-cursor: pointer;
+    cursor: pointer;
     position: absolute;
     width: 15px;
     height: 15px;
     top: 10px;
     right: 10px;
+
+    @media screen and (min-width: ${Breakpoints.TABLET}) {
+        width: 18px;
+        height: 18px;
+        top: 6px;
+        right: 6px;
+    }
 `;

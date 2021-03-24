@@ -2,10 +2,7 @@ import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { Breakpoints } from "enums";
 import { ReactComponent as Logo } from "assets/Logo-white.svg";
-
-interface HeaderChildProps {
-  order: number;
-}
+import { HeaderChildProps } from "./types";
 
 export const HeaderElement = styled.header`
   background-color: var(--mainColor);

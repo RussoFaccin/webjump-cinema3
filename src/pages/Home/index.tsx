@@ -66,8 +66,7 @@ const Home = () => {
   }, [
     getPopularMovies,
     getUpcomingMovies,
-    getNowPlayingMovies,
-    favoriteMovies,
+    getNowPlayingMovies
   ]);
 
   useEffect(() => {

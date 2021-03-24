@@ -75,6 +75,11 @@ export const Title = styled.h4`
 export const Text = styled.p`
     font-size: 1.2rem;
     font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 
     @media screen and (min-width: ${Breakpoints.TABLET}) {
         font-size: 1.5rem;

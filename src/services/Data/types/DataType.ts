@@ -1,4 +1,4 @@
-import { Movie } from "models";
+import { Movie } from 'shared/types';
 
 export type DataType = {
   getMovieList: (urlKey: string) => Promise<Movie[]>;

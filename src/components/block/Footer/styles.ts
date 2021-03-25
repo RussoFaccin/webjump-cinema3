@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "assets/Logo-white.svg";
-import { Breakpoints } from "enums";
+import { Breakpoints } from 'shared/enums';
 
 export const FooterElement = styled.footer`
   display: flex;

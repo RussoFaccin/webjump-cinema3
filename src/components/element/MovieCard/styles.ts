@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BsHeartFill } from "react-icons/bs";
-import { Breakpoints } from "enums";
+import { Breakpoints } from 'shared/enums';
 
 const SrOnly = `
     position: absolute;

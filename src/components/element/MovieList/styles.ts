@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from "enums";
+import { Breakpoints } from 'shared/enums';
 
 export const Container = styled.section`
   margin-top: 20px;

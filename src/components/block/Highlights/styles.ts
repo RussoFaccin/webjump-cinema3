@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from "enums";
+import { Breakpoints } from 'shared/enums';
 
 const Card = styled.div`
   border-radius: 10px;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
-import { Breakpoints } from "enums";
+import { Breakpoints } from 'shared/enums';
 import { ReactComponent as Logo } from "assets/Logo-white.svg";
 import { HeaderChildProps } from "./types";
 

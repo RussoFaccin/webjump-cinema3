@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Colors } from 'enums';
+import { Colors } from 'shared/enums';
 
 export const GlobalStyle = createGlobalStyle`
 :root {

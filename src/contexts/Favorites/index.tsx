@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Movie } from "models";
+import { Movie } from 'shared/types';
 import { AppStorage } from "services";
 import { ContextType, Props } from "./types";
 import { MovieList } from 'components/element';

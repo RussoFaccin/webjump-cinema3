@@ -3,10 +3,9 @@ import { Header, Footer } from "components/block";
 import { AppContent } from "./styles";
 import { MovieList } from "components/element";
 import { Highlights } from "components/block";
-import { Data } from 'services';
+import { Data } from "services";
 import { Movie } from "models/";
-import { FavoritesContext } from "contexts/Favorites";
-import { AppStorage } from "services";
+import { FavoritesProvider } from "contexts";
 
 const Home = () => {
   // Popular Movies
@@ -33,58 +32,21 @@ const Home = () => {
     setNowPlaying(Data.formatDataAPI(result));
   }, []);
 
-  // Favorites Movies
-  const [favoriteMovies, setFavorites] = useState<Movie[]>([]);
-
-  const toggleFavoriteList = useCallback(
-    (movie: Movie) => {
-      const tmpList = [...favoriteMovies];
-      const foundIndex = favoriteMovies.findIndex((movieEntry) => {
-        return movieEntry.id === movie.id;
-      });
-
-      if (foundIndex >= 0) {
-        tmpList.splice(foundIndex, 1);
-      } else {
-        tmpList.push(movie);
-      }
-      AppStorage.setFavorites(tmpList);
-      setFavorites(tmpList);
-    },
-    [favoriteMovies]
-  );
-
-  const getFavotireMovies = useCallback(() => {
-    const favorite = AppStorage.getFavorites();
-    setFavorites(favorite);
-  }, []);
-
   useEffect(() => {
     getPopularMovies();
     getUpcomingMovies();
     getNowPlayingMovies();
-  }, [
-    getPopularMovies,
-    getUpcomingMovies,
-    getNowPlayingMovies
-  ]);
-
-  useEffect(() => {
-    getFavotireMovies();
-  }, [getFavotireMovies]);
+  }, [getPopularMovies, getUpcomingMovies, getNowPlayingMovies]);
 
   return (
     <>
       <Header />
       <AppContent>
         <Highlights movieList={upcomingMovies} />
-        <FavoritesContext.Provider
-          value={{ favoriteMovies, toggleFavoriteList }}
-        >
+        <FavoritesProvider>
           <MovieList title="Populares" movies={popularMovies} />
           <MovieList title="Em Exibição" movies={nowPlayingMovies} />
-          <MovieList title="Favoritos" movies={favoriteMovies} />
-        </FavoritesContext.Provider>
+        </FavoritesProvider>
       </AppContent>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Container, Heading, CardPoster, HeartIcon } from "./styles";
-import { Movie } from "models/Movie";
+import { Movie } from "shared/types";
 import { FavoritesContext } from "contexts/Favorites";
 
 const MovieCard = ({ id, title, poster_path }: Movie) => {

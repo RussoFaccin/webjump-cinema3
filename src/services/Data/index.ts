@@ -1,5 +1,5 @@
 import { api, API_CONFIG } from "services/api";
-import { Movie } from "models";
+import { Movie } from 'shared/types';
 import { DataType } from './types';
 
 export const Data: DataType = {

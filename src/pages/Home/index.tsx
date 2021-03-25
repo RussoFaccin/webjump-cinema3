@@ -4,7 +4,7 @@ import { AppContent } from "./styles";
 import { MovieList } from "components/element";
 import { Highlights } from "components/block";
 import { Data } from "services";
-import { Movie } from "models/";
+import { Movie } from "shared/types";
 import { FavoritesProvider } from "contexts";
 
 const Home = () => {

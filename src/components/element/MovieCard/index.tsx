@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { Container, Heading, CardPoster, HeartIcon } from "./styles";
+import { Container, Heading, Poster, HeartIcon } from "./styles";
 import { Movie } from "shared/types";
 import { FavoritesContext } from "contexts/Favorites";
 
@@ -38,7 +38,7 @@ const MovieCard = ({ id, title, poster_path }: Movie) => {
   return (
     <Container>
       <Heading>{title}</Heading>
-      <CardPoster src={state.poster_path} alt={state.title} />
+      <Poster src={state.poster_path} alt={state.title} />
       <HeartIcon
         color={favorite ? "#e83f5b" : "black"}
         onClick={toggleFavorite}

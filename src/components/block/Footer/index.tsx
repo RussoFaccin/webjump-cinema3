@@ -1,31 +1,31 @@
 import React from "react";
 import {
-  FooterElement,
-  FooterBrand,
-  FooterLogo,
-  FooterHeading,
-  FooterNav,
-  FooterLink,
+  Container,
+  BrandLink,
+  Logo,
+  Heading,
+  Nav,
+  Link,
   StandardLink,
 } from "./styles";
 
 const Footer = () => {
   return (
-    <FooterElement>
-      <FooterBrand to="/">
-        <FooterLogo />
-        <FooterHeading>Cinejump!</FooterHeading>
-      </FooterBrand>
-      <FooterNav>
+    <Container>
+      <BrandLink to="/">
+        <Logo />
+        <Heading>Cinejump!</Heading>
+      </BrandLink>
+      <Nav>
         <StandardLink href="http://www.rodrigorusso.com.br" target="blank">
           Desnvolvido por Rodrigo Russo
         </StandardLink>
-        <FooterLink to="/">Proposta do projeto</FooterLink>
-        <FooterLink to="/">Protótipo no Figma</FooterLink>
-        <FooterLink to="/">Apresentação ao comitê</FooterLink>
-        <FooterLink to="/">Documentação</FooterLink>
-      </FooterNav>
-    </FooterElement>
+        <Link to="/">Proposta do projeto</Link>
+        <Link to="/">Protótipo no Figma</Link>
+        <Link to="/">Apresentação ao comitê</Link>
+        <Link to="/">Documentação</Link>
+      </Nav>
+    </Container>
   );
 };
 

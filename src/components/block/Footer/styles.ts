@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "assets/Logo-white.svg";
-import { Breakpoints } from 'shared/enums';
+import { Link as RouterLink } from "react-router-dom";
+import { ReactComponent as Brand } from "assets/Logo-white.svg";
+import { Breakpoints } from "shared/enums";
 
-export const FooterElement = styled.footer`
+export const Container = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,12 +14,12 @@ export const FooterElement = styled.footer`
   font-size: 1.4rem;
 `;
 
-export const FooterLogo = styled(Logo)`
+export const Logo = styled(Brand)`
   width: 100%;
   height: auto;
 `;
 
-export const FooterHeading = styled.h1`
+export const Heading = styled.h1`
   position: absolute;
   width: 0;
   height: 0;
@@ -31,12 +31,12 @@ export const FooterHeading = styled.h1`
   border: 0;
 `;
 
-export const FooterBrand = styled(Link)`
+export const BrandLink = styled(RouterLink)`
   display: block;
   margin-bottom: 25px;
 `;
 
-export const FooterLink = styled(Link)`
+export const Link = styled(RouterLink)`
   display: block;
   color: inherit;
   text-decoration: none;
@@ -56,7 +56,7 @@ export const StandardLink = styled.a`
   padding: 4px 0;
 `;
 
-export const FooterNav = styled.div`
+export const Nav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

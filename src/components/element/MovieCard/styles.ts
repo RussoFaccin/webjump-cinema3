@@ -30,7 +30,7 @@ export const Heading = styled.h3`
   ${SrOnly}
 `;
 
-export const CardPoster = styled.img`
+export const Poster = styled.img`
   display: block;
   width: 100%;
   height: 100%;

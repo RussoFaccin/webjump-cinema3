@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Breakpoints } from 'shared/enums';
 
-export const AppContent = styled.main`
+export const Content = styled.main`
   max-width: 1000px;
   padding: 0 20px;
   margin: auto;

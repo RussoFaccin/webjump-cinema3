@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
-import { Breakpoints } from 'shared/enums';
-import { ReactComponent as Logo } from "assets/Logo-white.svg";
+import { Breakpoints } from "shared/enums";
+import { ReactComponent as Brand } from "assets/Logo-white.svg";
 import { HeaderChildProps } from "./types";
 
-export const HeaderElement = styled.header`
+export const Container = styled.header`
   background-color: var(--mainColor);
 `;
 
-export const HeaderContent = styled.div`
+export const Content = styled.div`
   display: flex;
   align-items: center;
   padding: 22px 20px;
@@ -20,18 +20,18 @@ export const HeaderContent = styled.div`
   }
 `;
 
-export const AppBrand = styled.a<HeaderChildProps>`
+export const BrandLink = styled.a<HeaderChildProps>`
   order: ${(props) => props.order};
   width: 35vw;
   max-width: 150px;
 `;
 
-export const AppLogo = styled(Logo)`
+export const Logo = styled(Brand)`
   width: 100%;
   height: auto;
 `;
 
-export const AppTitle = styled.h1`
+export const Title = styled.h1`
   position: absolute;
   width: 0;
   height: 0;
@@ -43,14 +43,14 @@ export const AppTitle = styled.h1`
   border: 0;
 `;
 
-export const NavLink = styled(RouterLink)`
+export const Link = styled(RouterLink)`
   color: inherit;
   text-decoration: none;
   font-size: 1.5rem;
   margin-right: 15px;
 `;
 
-export const HeaderNavigation = styled.nav<HeaderChildProps>`
+export const Navigation = styled.nav<HeaderChildProps>`
   flex: 1;
   order: ${(props) => props.order};
   color: white;
@@ -62,7 +62,7 @@ export const HeaderNavigation = styled.nav<HeaderChildProps>`
   }
 `;
 
-export const HeaderSubnav = styled.div<HeaderChildProps>`
+export const SubNav = styled.div<HeaderChildProps>`
   flex: 1;
   order: ${(props) => props.order};
   display: flex;

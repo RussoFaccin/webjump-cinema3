@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Header, Footer } from "components/block";
-import { AppContent } from "./styles";
+import { Content } from "./styles";
 import { MovieList } from "components/element";
 import { Highlights } from "components/block";
 import { Data } from "services";
@@ -41,13 +41,13 @@ const Home = () => {
   return (
     <>
       <Header />
-      <AppContent>
+      <Content>
         <Highlights movieList={upcomingMovies} />
         <FavoritesProvider>
           <MovieList title="Populares" movies={popularMovies} />
           <MovieList title="Em Exibição" movies={nowPlayingMovies} />
         </FavoritesProvider>
-      </AppContent>
+      </Content>
       <Footer />
     </>
   );

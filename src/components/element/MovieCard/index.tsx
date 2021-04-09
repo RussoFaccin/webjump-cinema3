@@ -24,11 +24,8 @@ const MovieCard = ({ id, title, poster_path }: Movie) => {
       return movie.id === state.id;
     });
 
-    if (found) {
-      setFavorite(true);
-    } else {
-      setFavorite(false);
-    }
+    setFavorite(found ? true : false);
+
   }, [state.id, favoriteMovies]);
 
   useEffect(() => {

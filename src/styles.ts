@@ -37,8 +37,8 @@ body {
     180deg,
     var(--mainColor) 0,
     var(--mainColor) 328px,
-    #fff 328px,
-    #fff 100%
+    ${Colors.WHITE} 328px,
+    ${Colors.WHITE} 100%
   );
   background-attachment: local;
 }

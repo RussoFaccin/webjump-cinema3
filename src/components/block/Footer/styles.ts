@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
-import { Breakpoints } from "shared/enums";
+import { Breakpoints, Colors } from "shared/enums";
 
 export const Container = styled.footer`
   display: flex;
@@ -60,7 +60,7 @@ export const Nav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
+  color: ${Colors.WHITE};
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     flex-direction: row;

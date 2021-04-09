@@ -16,11 +16,11 @@ const FavoritesProvider = ({ children }: Props) => {
         return movieEntry.id === movie.id;
       });
 
-      if (foundIndex >= 0) {
-        tmpList.splice(foundIndex, 1);
-      } else {
-        tmpList.push(movie);
-      }
+      const addIndex = foundIndex >= 0 ? foundIndex : tmpList.length;
+      const addItems = foundIndex >= 0 ? [] : [movie];
+      
+      tmpList.splice(addIndex, 1, ...addItems);
+
       AppStorage.setFavorites(tmpList);
       setFavorites(tmpList);
     },

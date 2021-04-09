@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Container, Heading, Poster, HeartIcon } from "./styles";
 import { Movie } from "shared/types";
 import { FavoritesContext } from "contexts/Favorites";
+import { Colors } from 'shared/enums';
 
 const MovieCard = ({ id, title, poster_path }: Movie) => {
   const { favoriteMovies, toggleFavoriteList } = useContext(FavoritesContext);
@@ -37,7 +38,7 @@ const MovieCard = ({ id, title, poster_path }: Movie) => {
       <Heading>{title}</Heading>
       <Poster src={state.poster_path} alt={state.title} />
       <HeartIcon
-        color={favorite ? "#e83f5b" : "black"}
+        color={favorite ? Colors.PRIMARY : Colors.BLACK}
         onClick={toggleFavorite}
       />
     </Container>

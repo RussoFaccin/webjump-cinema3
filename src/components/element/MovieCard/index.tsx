@@ -4,13 +4,15 @@ import { Movie } from "shared/types";
 import { FavoritesContext } from "contexts/Favorites";
 import { Colors } from 'shared/enums';
 
-const MovieCard = ({ id, title, poster_path }: Movie) => {
+const MovieCard = ({ id, title, poster_path, backdrop_path, overview }: Movie) => {
   const { favoriteMovies, toggleFavoriteList } = useContext(FavoritesContext);
 
   const [state] = useState({
     id,
     title,
     poster_path,
+    backdrop_path,
+    overview
   });
 
   const [favorite, setFavorite] = useState(false);

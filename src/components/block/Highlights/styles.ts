@@ -30,6 +30,18 @@ export const CardPicture = styled.img`
   height: 100%;
   object-fit: cover;
   display: block;
+
+  &::after {
+    content: 'Imagem indisponível.';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+  }
 `;
 
 export const CardMain = styled(Card)`

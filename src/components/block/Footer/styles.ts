@@ -44,7 +44,7 @@ export const Link = styled(RouterLink)`
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     :not(:last-of-type) {
-      margin-right: 10px;
+      margin-right: 15px;
     }
   }
 `;
@@ -54,6 +54,12 @@ export const StandardLink = styled.a`
   color: inherit;
   text-decoration: none;
   padding: 4px 0;
+
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    :not(:last-of-type) {
+      margin-right: 15px;
+    }
+  }
 `;
 
 export const Nav = styled.div`

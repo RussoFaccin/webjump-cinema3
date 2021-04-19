@@ -18,10 +18,10 @@ const Footer = () => {
       </BrandLink>
       <Nav>
         <StandardLink href="http://www.rodrigorusso.com.br" target="blank">
-          Desnvolvido por Rodrigo Russo
+          Desenvolvido por Rodrigo Russo
         </StandardLink>
-        <Link to="/">Proposta do projeto</Link>
-        <Link to="/">Protótipo no Figma</Link>
+        <StandardLink href="https://webjump.atlassian.net/wiki/spaces/AW/pages/2195030216/Introdu+o+-+1#3.-Cinejump---Projeto-Final" target="blank">Proposta do projeto</StandardLink>
+        <StandardLink href='https://www.figma.com/proto/um4dcEJCOlEvB6kCe9KCOD/Cinejump?node-id=7185%3A17&scaling=scale-down-width' target="blank">Protótipo no Figma</StandardLink>
         <Link to="/">Apresentação ao comitê</Link>
         <Link to="/">Documentação</Link>
       </Nav>

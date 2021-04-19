@@ -7,7 +7,7 @@ Repositório:
 https://github.com/RussoFaccin/webjump-cinema2
 
 Demonstração:
-https://cinejump.netlify.app/
+https://cinejumpii.netlify.app/
 
 ![Cinejump!](https://i.ibb.co/CVkMhxY/cinejump-layout.jpg)
 

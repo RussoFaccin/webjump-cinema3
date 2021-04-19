@@ -23,7 +23,7 @@ const Footer = () => {
         <StandardLink href="https://webjump.atlassian.net/wiki/spaces/AW/pages/2195030216/Introdu+o+-+1#3.-Cinejump---Projeto-Final" target="blank">Proposta do projeto</StandardLink>
         <StandardLink href='https://www.figma.com/proto/um4dcEJCOlEvB6kCe9KCOD/Cinejump?node-id=7185%3A17&scaling=scale-down-width' target="blank">Protótipo no Figma</StandardLink>
         <Link to="/">Apresentação ao comitê</Link>
-        <Link to="/">Documentação</Link>
+        <StandardLink href="https://github.com/RussoFaccin/webjump-cinema2#readme" target="blank">Documentação</StandardLink>
       </Nav>
     </Container>
   );

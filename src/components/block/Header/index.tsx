@@ -16,15 +16,15 @@ const Header = () => {
   return (
     <Container>
       <Content>
-        <Navigation order={1}>
+        <Navigation>
           <Link to="/filmes">Filmes</Link>
           <Link to="/series">Series</Link>
         </Navigation>
-        <BrandLink href="/" order={2}>
+        <BrandLink href="/">
           <Logo />
           <Title>Cinejump!</Title>
         </BrandLink>
-        <SubNav order={3}>
+        <SubNav>
           <CircleButton text="Search">
             <BiSearch size="70%" color="white" />
           </CircleButton>

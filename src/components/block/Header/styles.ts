@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { Breakpoints } from "shared/enums";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
-import { HeaderChildProps } from "./types";
 
 export const Container = styled.header`
   background-color: var(--mainColor);
@@ -20,8 +19,7 @@ export const Content = styled.div`
   }
 `;
 
-export const BrandLink = styled.a<HeaderChildProps>`
-  order: ${(props) => props.order};
+export const BrandLink = styled.a`
   width: 35vw;
   max-width: 150px;
 `;
@@ -50,9 +48,8 @@ export const Link = styled(RouterLink)`
   margin-right: 15px;
 `;
 
-export const Navigation = styled.nav<HeaderChildProps>`
+export const Navigation = styled.nav`
   flex: 1;
-  order: ${(props) => props.order};
   color: white;
   display: flex;
   flex-direction: column;
@@ -62,9 +59,8 @@ export const Navigation = styled.nav<HeaderChildProps>`
   }
 `;
 
-export const SubNav = styled.div<HeaderChildProps>`
+export const SubNav = styled.div`
   flex: 1;
-  order: ${(props) => props.order};
   display: flex;
   justify-content: flex-end;
 `;

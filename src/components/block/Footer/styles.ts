@@ -34,6 +34,7 @@ export const Heading = styled.h1`
 export const BrandLink = styled(RouterLink)`
   display: block;
   margin-bottom: 25px;
+  max-width: 150px;
 `;
 
 export const Link = styled(RouterLink)`

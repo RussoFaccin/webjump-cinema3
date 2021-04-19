@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BsHeartFill } from "react-icons/bs";
-import { Breakpoints } from 'shared/enums';
+import { Breakpoints } from "shared/enums";
 
 const SrOnly = `
     position: absolute;
@@ -42,13 +42,24 @@ export const Poster = styled.img`
   }
 `;
 
-export const HeartIcon = styled(BsHeartFill)`
+export const Button = styled.button`
   cursor: pointer;
   position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: 0;
+
+  :focus {
+    outline: 0;
+  }
+`;
+
+export const HeartIcon = styled(BsHeartFill)`
   width: 15px;
   height: 15px;
-  top: 10px;
-  right: 10px;
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     width: 18px;

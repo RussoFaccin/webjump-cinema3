@@ -1,10 +1,16 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { Container, Heading, Poster, HeartIcon } from "./styles";
+import { Button, Container, Heading, Poster, HeartIcon } from "./styles";
 import { Movie } from "shared/types";
 import { FavoritesContext } from "contexts/Favorites";
-import { Colors } from 'shared/enums';
+import { Colors } from "shared/enums";
 
-const MovieCard = ({ id, title, poster_path, backdrop_path, overview }: Movie) => {
+const MovieCard = ({
+  id,
+  title,
+  poster_path,
+  backdrop_path,
+  overview,
+}: Movie) => {
   const { favoriteMovies, toggleFavoriteList } = useContext(FavoritesContext);
 
   const [state] = useState({
@@ -12,7 +18,7 @@ const MovieCard = ({ id, title, poster_path, backdrop_path, overview }: Movie) =
     title,
     poster_path,
     backdrop_path,
-    overview
+    overview,
   });
 
   const [favorite, setFavorite] = useState(false);
@@ -28,7 +34,6 @@ const MovieCard = ({ id, title, poster_path, backdrop_path, overview }: Movie) =
     });
 
     setFavorite(found ? true : false);
-
   }, [state.id, favoriteMovies]);
 
   useEffect(() => {
@@ -39,10 +44,9 @@ const MovieCard = ({ id, title, poster_path, backdrop_path, overview }: Movie) =
     <Container>
       <Heading>{title}</Heading>
       <Poster src={state.poster_path} alt={state.title} />
-      <HeartIcon
-        color={favorite ? Colors.PRIMARY : Colors.BLACK}
-        onClick={toggleFavorite}
-      />
+      <Button onClick={toggleFavorite}>
+        <HeartIcon color={favorite ? Colors.PRIMARY : Colors.BLACK} />
+      </Button>
     </Container>
   );
 };

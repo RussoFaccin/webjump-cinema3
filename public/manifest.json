@@ -4,7 +4,7 @@
   "lang": "en",
   "description": "Projeto Academia Webjump. Trilha 2",
   "start_url": "./",
-  "background_color": "#ffffff",
+  "background_color": "#e83f5b",
   "theme_color": "#e83f5b",
   "dir": "ltr",
   "display": "standalone",

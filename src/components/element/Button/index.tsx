@@ -6,14 +6,16 @@ import { Container } from "./styles";
 const Button = ({
   children = "Button",
   outlined = false,
-  fill = Colors.PRIMARY.toString(),
-  stroke = Colors.WHITE,
+  background = Colors.PRIMARY,
+  borderColor = Colors.WHITE,
+  textColor = Colors.WHITE,
 }: Props) => {
   return (
     <Container
       outlined={outlined}
-      backgroundColor={fill}
-      borderColor={stroke}
+      backgroundColor={background}
+      borderColor={borderColor}
+      color={textColor}
     >
       {children}
     </Container>

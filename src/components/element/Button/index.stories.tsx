@@ -1,17 +1,16 @@
-import React from 'react';
-import Button from './';
-import { Props } from './types';
+import React from "react";
+import {Meta, Story} from "@storybook/react";
+import Button from "./";
+import { Props } from "./types";
 
 export default {
-    title: 'Components/Button',
-    component: Button,
-    argTypes: {
-        fill: {
-            control: 'color'
-        }
-    }
-}
+  title: "Components/Button",
+  component: Button,
+} as Meta;
 
-const Template = (args: Props) => <Button {...args}>{args.children}</Button>
+const Template: Story<Props> = (args: Props) => <Button {...args}>{args.children}</Button>;
 
 export const Default = Template.bind({});
+Default.args = {
+  children: "Button",
+};

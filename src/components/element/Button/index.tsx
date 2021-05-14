@@ -1,5 +1,5 @@
 import React from "react";
-import { Props } from "./types";
+import type { Props } from "./types";
 import { Colors } from "shared/enums";
 import { Container } from "./styles";
 
@@ -9,6 +9,8 @@ const Button = ({
   background = Colors.PRIMARY,
   borderColor = Colors.WHITE,
   textColor = Colors.WHITE,
+  size = "default",
+  clickAction
 }: Props) => {
   return (
     <Container
@@ -16,6 +18,8 @@ const Button = ({
       backgroundColor={background}
       borderColor={borderColor}
       color={textColor}
+      onClick={clickAction}
+      size={size}
     >
       {children}
     </Container>

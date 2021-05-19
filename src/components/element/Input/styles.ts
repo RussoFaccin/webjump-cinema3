@@ -1,14 +1,25 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
+import { StyleProps } from "./types";
 import { Colors } from "shared/enums/";
 
-export const GlobalStyle = createGlobalStyle`
-* {
-  box-sizing: border-box;
-}
-`;
-
-export const Container = styled.div`
+export const Container = styled.div<StyleProps>`
+  width: ${(props) => (props.size === "default" ? "530px" : "300px")};
+  height: ${(props) => (props.size === "default" ? "72px" : "60px")};
+  position: relative;
   display: flex;
+  align-items: center;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  svg {
+    position: absolute;
+    left: 26px;
+    width: 24px;
+    height: 24px;
+    opacity: .15;
+  }
 `;
 
 export const Label = styled.label`
@@ -24,13 +35,15 @@ export const Label = styled.label`
 `;
 
 export const TextBox = styled.input`
-  width: 530px;
+  width: 100%;
+  height: 100%;
   height: 72px;
   border: 0;
   border-radius: 10px;
   padding: 24px 24px 24px 72px;
   background-color: ${Colors.INPUT_BACKGROUND};
-  font-family: Ubuntu sans-serif;
+  color: ${Colors.LIGHT};
+  font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: 300;
 `;

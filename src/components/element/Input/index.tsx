@@ -1,17 +1,19 @@
 import React from "react";
 import { Props } from "./types";
-import { Container, GlobalStyle, Label, TextBox } from "./styles";
+import { Container, Label, TextBox } from "./styles";
 
-const Input = ({ icon = <span>i</span>, label = "" }: Props) => {
+const Input = ({ icon: Icon, label = "", type="text", size = "default", pattern = '' }: Props) => {
   return (
     <>
-      <GlobalStyle />
-      <Container>
+      <Container size={size}>
+        {Icon}
         <Label htmlFor={`fld_${label.toLowerCase()}`}>{label}</Label>
         <TextBox
+          type={type}
           name={`fld_${label.toLowerCase()}`}
           id={`fld_${label.toLowerCase()}`}
           placeholder={label}
+          pattern={pattern}
         />
       </Container>
     </>

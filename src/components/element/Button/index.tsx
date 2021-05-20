@@ -9,7 +9,6 @@ const Button = ({
   background = Colors.PRIMARY,
   borderColor = Colors.WHITE,
   textColor = Colors.WHITE,
-  size = "default",
   clickAction
 }: Props) => {
   return (
@@ -19,7 +18,6 @@ const Button = ({
       borderColor={borderColor}
       color={textColor}
       onClick={clickAction}
-      size={size}
     >
       {children}
     </Container>

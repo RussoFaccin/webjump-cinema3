@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Breakpoints, Colors } from 'shared/enums';
+import { Breakpoints } from 'shared/enums';
 import { ContainerProps } from './types';
 
 export const Container = styled.button<ContainerProps>`
-  width: 300px; //360;
-  height: 60px; // 72
+  width: 300px;
+  height: 60px;
   border-radius: 45px;
-  font-size: 20px; //24
+  font-size: 20px;
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
   border: ${(props) =>

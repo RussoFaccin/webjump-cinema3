@@ -1,24 +1,33 @@
 import styled from "styled-components";
-import { StyleProps } from "./types";
-import { Colors } from "shared/enums/";
+import { Breakpoints, Colors } from "shared/enums/";
 
-export const Container = styled.div<StyleProps>`
-  width: ${(props) => (props.size === "default" ? "530px" : "300px")};
-  height: ${(props) => (props.size === "default" ? "72px" : "60px")};
+export const invalidStyle = { outline: `2px solid ${Colors.PRIMARY}` };
+
+export const Container = styled.div`
+  width: 300px;
+  height: 60px;
   position: relative;
   display: flex;
   align-items: center;
 
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    width: 530px;
+    height: 72px;
+  }
+
   * {
     box-sizing: border-box;
   }
+`;
+
+export const IconBox = styled.div`
+  position: absolute;
+  margin: 24px;
 
   svg {
-    position: absolute;
-    left: 26px;
     width: 24px;
     height: 24px;
-    opacity: .15;
+    color: ${Colors.LIGHT};
   }
 `;
 
@@ -34,10 +43,14 @@ export const Label = styled.label`
   border: 0;
 `;
 
-export const TextBox = styled.input`
+type TextBoxProps = {
+  error: boolean;
+};
+
+export const TextBox = styled.input<TextBoxProps>`
   width: 100%;
   height: 100%;
-  height: 72px;
+  height: 100%;
   border: 0;
   border-radius: 10px;
   padding: 24px 24px 24px 72px;
@@ -46,4 +59,21 @@ export const TextBox = styled.input`
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: 300;
+  outline: ${(props) => (props.error ? invalidStyle.outline : "none")};
+`;
+
+export const ErrorMessage = styled.p`
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  padding: 4px;
+  background-color: ${Colors.PRIMARY};
+  color: ${Colors.WHITE};
+  transform: translateY(100%);
+
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    display: none;
+  }
 `;

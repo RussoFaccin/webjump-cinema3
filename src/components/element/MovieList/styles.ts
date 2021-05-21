@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from 'shared/enums';
+import { Breakpoints, Colors } from 'shared/enums';
 
 export const Container = styled.section`
   margin-top: 20px;
@@ -9,7 +9,7 @@ export const Container = styled.section`
 export const Heading = styled.h3`
   font-size: 18px;
   font-weight: 400;
-  color: var(--mainColor);
+  color: ${Colors.PRIMARY};
   margin-bottom: 10px;
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {

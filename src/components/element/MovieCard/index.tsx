@@ -1,7 +1,7 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, Container, Heading, Poster, HeartIcon } from "./styles";
 import { Movie } from "shared/types";
-import { FavoritesContext } from "contexts/Favorites";
+import { Props } from "./types";
 import { Colors } from "shared/enums";
 
 const MovieCard = ({
@@ -10,42 +10,44 @@ const MovieCard = ({
   poster_path,
   backdrop_path,
   overview,
-}: Movie) => {
-  const { favoriteMovies, toggleFavoriteList } = useContext(FavoritesContext);
+  favorite,
+  actionFavorite,
+}: Movie & Props) => {
+  const [isFavorite, setFavorite] = useState(favorite);
 
-  const [state] = useState({
+  const toggleFavorite = useCallback(() => {
+    setFavorite(!isFavorite);
+
+    const movie = {
+      id,
+      title,
+      poster_path,
+      backdrop_path,
+      overview,
+      favorite: !isFavorite,
+    };
+
+    actionFavorite(movie);
+  }, [
     id,
     title,
     poster_path,
     backdrop_path,
     overview,
-  });
-
-  const [favorite, setFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-    toggleFavoriteList(state);
-  };
-
-  const checkFavorite = useCallback(() => {
-    const found = favoriteMovies.find((movie) => {
-      return movie.id === state.id;
-    });
-
-    setFavorite(found ? true : false);
-  }, [state.id, favoriteMovies]);
+    actionFavorite,
+    isFavorite,
+  ]);
 
   useEffect(() => {
-    checkFavorite();
-  }, [favoriteMovies, checkFavorite]);
+    setFavorite(favorite);
+  }, [favorite]);
 
   return (
     <Container>
       <Heading>{title}</Heading>
-      <Poster src={state.poster_path} alt={state.title} />
+      <Poster src={poster_path} alt={title} />
       <Button onClick={toggleFavorite}>
-        <HeartIcon color={favorite ? Colors.PRIMARY : Colors.BLACK} />
+        <HeartIcon color={isFavorite ? Colors.PRIMARY : Colors.BLACK} />
       </Button>
     </Container>
   );

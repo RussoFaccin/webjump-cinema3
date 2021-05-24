@@ -1,15 +1,18 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
 // Pages
-import {Home} from '../pages';
+import { Home, Login } from "../pages";
 
 const Routes = () => {
-    return (
-        <Switch>
-            <Route path="/">
-                <Home/>
-            </Route>
-        </Switch>
-    );
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+    </Switch>
+  );
 };
 
 export default Routes;

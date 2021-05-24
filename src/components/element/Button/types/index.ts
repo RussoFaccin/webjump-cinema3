@@ -1,7 +1,7 @@
 import { Colors } from 'shared/enums';
 export type Props = {
     children?: string | JSX.Element;
-    outlined: boolean;
+    outlined?: boolean;
     background?: Colors;
     borderColor?: Colors;
     textColor?: Colors;

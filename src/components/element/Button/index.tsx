@@ -14,6 +14,7 @@ const Button = ({
 }: Props) => {
   return (
     <Container
+    className={className}
       outlined={outlined}
       backgroundColor={background}
       borderColor={borderColor}

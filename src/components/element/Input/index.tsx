@@ -4,6 +4,7 @@ import { Container, ErrorMessage, IconBox, Label, TextBox } from "./styles";
 import ErrorTolltip from "components/element/ErrorTooltip";
 
 const Input = ({
+  className,
   icon: Icon,
   label = "",
   type = "text",
@@ -31,7 +32,7 @@ const Input = ({
 
   return (
     <>
-      <Container>
+      <Container className={className}>
         <IconBox>{Icon}</IconBox>
         <Label htmlFor={`fld_${label.toLowerCase()}`}>{label}</Label>
         <TextBox

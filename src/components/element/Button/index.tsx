@@ -4,6 +4,7 @@ import { Colors } from "shared/enums";
 import { Container } from "./styles";
 
 const Button = ({
+  className,
   children = "Button",
   outlined = false,
   background = Colors.PRIMARY,
@@ -13,6 +14,7 @@ const Button = ({
 }: Props) => {
   return (
     <Container
+    className={className}
       outlined={outlined}
       backgroundColor={background}
       borderColor={borderColor}

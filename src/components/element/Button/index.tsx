@@ -4,6 +4,7 @@ import { Colors } from "shared/enums";
 import { Container } from "./styles";
 
 const Button = ({
+  className,
   children = "Button",
   outlined = false,
   background = Colors.PRIMARY,

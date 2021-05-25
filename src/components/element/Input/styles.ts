@@ -23,6 +23,7 @@ export const Container = styled.div`
 export const IconBox = styled.div`
   position: absolute;
   margin: 24px;
+  z-index: 2;
 
   svg {
     width: 24px;

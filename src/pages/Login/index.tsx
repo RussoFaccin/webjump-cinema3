@@ -3,8 +3,9 @@ import {
   BrandLink,
   Container,
   Form,
-  FormButton,
+  Button,
   Heading,
+  InputEmail,
   Logo,
   SectionAction,
   SectionMain,
@@ -23,14 +24,14 @@ const Login = () => {
         </BrandLink>
         <Form>
           <Heading>Login</Heading>
-          <Input
+          <InputEmail
             icon={<FiMail />}
             label="E-mail"
             required={true}
             validationMessage="Compo obrigatório."
           />
           <Input icon={<FiLock />} label="Senha" />
-          <FormButton clickAction={() => false}>Entrar</FormButton>
+          <Button clickAction={() => false}>Entrar</Button>
         </Form>
       </SectionMain>
       <SectionAction></SectionAction>

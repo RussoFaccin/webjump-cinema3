@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Colors } from "shared/enums";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
 import { Link } from "react-router-dom";
-import { Button } from "components/element";
+import { Button as FormButton } from "components/element";
+import { Input as FormInput } from "components/element";
 
 export const Container = styled.main`
   width: 100%;
@@ -27,8 +28,9 @@ export const SectionAction = styled.section`
 
 export const BrandLink = styled(Link)`
   position: absolute;
-  top: 102px;
+  top: 20px;
   width: 130px;
+  z-index: 2;
 `;
 
 export const Logo = styled(Brand)`
@@ -59,13 +61,17 @@ export const Form = styled.form`
 
 export const Heading = styled.h2`
   text-align: center;
-  font-size: 6.4rem;
+  font-size: 3rem;
   font-weight: 400;
   color: ${Colors.PRIMARY};
   margin-bottom: 64px;
 `;
 
-export const FormButton = styled(Button)`
+export const InputEmail = styled(FormInput)`
+  margin-bottom: 16px;
+`;
+
+export const Button = styled(FormButton)`
   position: relative;
   margin-top: 32px;
 `;

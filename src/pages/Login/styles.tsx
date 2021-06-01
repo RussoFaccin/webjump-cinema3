@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "shared/enums";
+import { Breakpoints, Colors } from "shared/enums";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
 import { Link } from "react-router-dom";
 import { Button as FormButton } from "components/element";
@@ -9,21 +9,55 @@ export const Container = styled.main`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: stretch;
+
+  @media screen and (min-width: ${Breakpoints.FULL}) {
+    flex-direction: row;
+  }
 `;
 
-export const SectionMain = styled.section`
+const Section = styled.section`
+  padding: 100px 0;
+
+  @media screen and (min-width: ${Breakpoints.FULL}) {
+    padding: 0;
+  }
+`;
+
+export const SectionMain = styled(Section)`
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${Colors.WHITE};
-  flex-basis: 1370px;
+  flex: 2.49;
 `;
 
-export const SectionAction = styled.section`
+export const SectionAction = styled(Section)`
   background-color: ${Colors.PRIMARY};
-  flex-basis: 550px;
-  min-width: 320px;
+  flex: 1;
+  min-width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeadingAction = styled.h2`
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: ${Colors.WHITE};
+  margin-bottom: 64px;
+`;
+
+export const TextAction = styled.p`
+  text-align: center;
+  font-size: 2.1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  width: 280px;
+  color: ${Colors.WHITE};
 `;
 
 export const BrandLink = styled(Link)`
@@ -61,17 +95,34 @@ export const Form = styled.form`
 
 export const Heading = styled.h2`
   text-align: center;
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-weight: 400;
   color: ${Colors.PRIMARY};
   margin-bottom: 64px;
 `;
 
 export const InputEmail = styled(FormInput)`
-  margin-bottom: 16px;
+  width: 300px;
+  margin-bottom: 35px;
+
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    width: auto;
+  }
+`;
+
+export const InputSenha = styled(FormInput)`
+  width: 300px;
+
+  @media screen and (min-width: ${Breakpoints.TABLET}) {
+    width: auto;
+  }
 `;
 
 export const Button = styled(FormButton)`
   position: relative;
   margin-top: 32px;
+
+  &:focus {
+    outline: 0;
+  }
 `;

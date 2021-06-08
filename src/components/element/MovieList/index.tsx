@@ -3,7 +3,7 @@ import { MovieCard } from "components/element";
 import { ScrollDrag } from "components/element";
 import { Container, Heading } from "./styles";
 import { Props } from "./types";
-import { FavoritesContext } from "contexts/Favorites";
+import { FavoritesContext } from "contexts/Movies";
 
 const MovieList = ({ title, movies }: Props) => {
   const { toggleFavoriteList } = useContext(FavoritesContext);

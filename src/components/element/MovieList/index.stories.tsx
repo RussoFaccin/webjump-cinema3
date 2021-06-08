@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import { FavoritesProvider } from "contexts";
+import { FavoritesContext } from "contexts/Movies";
 import { Props } from "./types";
 import MovieList from "./";
 
@@ -10,10 +10,13 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args) => {
+  
   return (
-    <FavoritesProvider>
+    <FavoritesContext.Provider
+      value={{ favoriteMovies: [], toggleFavoriteList: () => false }}
+    >
       <MovieList {...args} />
-    </FavoritesProvider>
+    </FavoritesContext.Provider>
   );
 };
 

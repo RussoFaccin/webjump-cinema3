@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { Breakpoints } from "shared/enums";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
+import { StyleProps } from "./types";
 
-export const Container = styled.header`
-  background-color: var(--mainColor);
+export const Container = styled.header<StyleProps>`
+  background-color: ${props => props.background};
+  color: ${props => props.textColor}
 `;
 
 export const Content = styled.div`
@@ -50,7 +52,7 @@ export const Link = styled(RouterLink)`
 
 export const Navigation = styled.nav`
   flex: 1;
-  color: white;
+  color: inherit;
   display: flex;
   flex-direction: column;
 

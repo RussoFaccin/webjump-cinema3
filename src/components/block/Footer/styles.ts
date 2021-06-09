@@ -2,13 +2,15 @@ import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
 import { Breakpoints, Colors } from "shared/enums";
+import { StyleProps } from "./types";
 
-export const Container = styled.footer`
+export const Container = styled.footer<StyleProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--mainColor);
+  background-color: ${props => props.background};
+  color: ${props => props.textColor};
   padding: 30px 0;
   margin-top: 15px;
   font-size: 1.4rem;
@@ -67,7 +69,7 @@ export const Nav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${Colors.WHITE};
+  color: inherit;
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     flex-direction: row;

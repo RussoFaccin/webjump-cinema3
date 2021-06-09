@@ -14,7 +14,7 @@ import { Colors } from "shared/enums";
 const Profile = () => {
   return (
     <Container>
-      <Header />
+      <Header background={Colors.SECONDARY} />
       <Content>
         <UserCircle />
         <Form>
@@ -43,7 +43,7 @@ const Profile = () => {
           </Button>
         </Form>
       </Content>
-      <Footer />
+      <Footer background={Colors.SECONDARY} />
     </Container>
   );
 };

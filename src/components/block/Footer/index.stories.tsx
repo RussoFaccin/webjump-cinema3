@@ -29,5 +29,5 @@ const Template: Story = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   background: Colors.PRIMARY,
-  textColor: Colors.WHITE
-}
+  textColor: Colors.WHITE,
+};

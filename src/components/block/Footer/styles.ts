@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
-import { Breakpoints, Colors } from "shared/enums";
+import { Breakpoints } from "shared/enums";
 import { StyleProps } from "./types";
 
 export const Container = styled.footer<StyleProps>`

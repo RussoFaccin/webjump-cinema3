@@ -5,7 +5,7 @@ import { Container, Heading } from "./styles";
 import { Props } from "./types";
 import { FavoritesContext } from "contexts/Movies";
 
-const MovieList = ({ title, movies }: Props) => {
+const MovieList = ({ isVisible = true, title, movies }: Props) => {
   const { toggleFavoriteList } = useContext(FavoritesContext);
 
   const renderList = useCallback(() => {
@@ -23,6 +23,10 @@ const MovieList = ({ title, movies }: Props) => {
   }, [movies, toggleFavoriteList]);
 
   if (!movies || movies.length === 0) {
+    return null;
+  }
+
+  if (!isVisible) {
     return null;
   }
 

@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "components/PrivateRoute";
 // Pages
 import { Home, Login, Profile, Signup } from "../pages";
 
@@ -14,9 +15,9 @@ const Routes = () => {
       <Route exact path="/signup">
         <Signup />
       </Route>
-      <Route exact path="/profile">
+      <PrivateRoute exact path="/profile">
         <Profile />
-      </Route>
+      </PrivateRoute>
     </Switch>
   );
 };

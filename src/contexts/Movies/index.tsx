@@ -3,10 +3,12 @@ import { MovieList } from "components/element/";
 import { Movie } from "shared/types";
 import { AppStorage, Data, Favorites } from "services";
 import { ContextType } from "./types";
+import { useAuth } from "contexts";
 
 export const FavoritesContext = React.createContext({} as ContextType);
 
 const MoviesProvider = () => {
+  const { isLogged } = useAuth();
   // Popular Movies
   const [popularMovies, setPopular] = useState<Movie[]>([]);
 
@@ -55,7 +57,7 @@ const MoviesProvider = () => {
     <FavoritesContext.Provider value={{ favoriteMovies, toggleFavoriteList }}>
       <MovieList title="Populares" movies={Favorites.setFavoriteMovies(popularMovies)} />
       <MovieList title="Em Exibição" movies={Favorites.setFavoriteMovies(nowPlayingMovies)} />
-      <MovieList title="Favoritos" movies={favoriteMovies} />
+      <MovieList isVisible={isLogged} title="Favoritos" movies={favoriteMovies} />
     </FavoritesContext.Provider>
   );
 };

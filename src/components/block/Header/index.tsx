@@ -1,3 +1,9 @@
+import React, { useCallback } from "react";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "contexts";
+import { BiSearch } from "react-icons/bi";
+import { Props } from "./types";
+import { Colors } from "shared/enums";
 import {
   Container,
   Content,
@@ -10,14 +16,20 @@ import {
 } from "./styles";
 import { CircleButton } from "components/element";
 import { CgProfile } from "react-icons/cg";
-import { BiSearch } from "react-icons/bi";
-import { Props } from "./types";
-import { Colors } from "shared/enums";
 
 const Header = ({
   background = Colors.PRIMARY,
   textColor = Colors.WHITE,
 }: Props) => {
+  const { isLogged } = useAuth();
+  const history = useHistory();
+
+  const handleProfile = useCallback(() => {
+    history.push(
+      isLogged ? "/profile" : "/login"
+    );
+  }, [history, isLogged]);
+
   return (
     <Container background={background} textColor={textColor}>
       <Content>
@@ -33,7 +45,7 @@ const Header = ({
           <CircleButton text="Search">
             <BiSearch size="70%" color={textColor} />
           </CircleButton>
-          <CircleButton text="Profile">
+          <CircleButton text="Profile" onClick={handleProfile}>
             <CgProfile size="70%" color={textColor} />
           </CircleButton>
         </SubNav>

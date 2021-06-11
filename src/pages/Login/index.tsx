@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { FiMail, FiLock } from "react-icons/fi";
 import {
   BrandLink,
   Container,
@@ -14,9 +16,10 @@ import {
   TextAction,
   Title,
 } from "./styles";
-import { FiMail, FiLock } from "react-icons/fi";
 
 const Login = () => {
+  const history = useHistory();
+  
   return (
     <Container data-testid="login-page">
       <SectionMain>
@@ -40,7 +43,7 @@ const Login = () => {
       <SectionAction>
         <HeadingAction>Olá, visitante!</HeadingAction>
         <TextAction>Cadastre-se e conheça as vantagens do Cinejump.</TextAction>
-        <Button outlined={true} clickAction={() => false}>
+        <Button outlined={true} clickAction={() => history.push("/signup")}>
           Criar conta
         </Button>
       </SectionAction>

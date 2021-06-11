@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { FiLock, FiMail, FiUser } from "react-icons/fi";
 import {
   BrandLink,
@@ -16,6 +17,8 @@ import {
 } from "./styles";
 
 const Signup = () => {
+  const history = useHistory();
+
   return (
     <Container data-testid="signup-page">
       <SectionAction>
@@ -23,7 +26,7 @@ const Signup = () => {
         <TextAction>
           Para se manter conectado, faça login com suas credenciais.
         </TextAction>
-        <Button outlined={true} clickAction={() => false}>
+        <Button outlined={true} clickAction={() => history.push("/login")}>
           Login
         </Button>
       </SectionAction>

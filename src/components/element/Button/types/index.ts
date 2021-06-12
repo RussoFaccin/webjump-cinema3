@@ -6,7 +6,7 @@ export type Props = {
   background?: Colors;
   borderColor?: Colors;
   textColor?: Colors;
-  clickAction(): void;
+  clickAction(evt: any): void;
 };
 
 export type ContainerProps = {

@@ -67,7 +67,7 @@ const Login = () => {
     if (!response.ok) {
       setError({
         hasError: true,
-        message: "E-mail e/ou Senha incorretos. Verifique credenciais.",
+        message: "E-mail e/ou Senha incorretos. Verifique as credenciais.",
       });
 
       return false;

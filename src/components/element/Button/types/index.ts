@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import { Colors } from "shared/enums";
 export type Props = {
   className?: string;

@@ -21,7 +21,7 @@ export const Content = styled.div`
   }
 `;
 
-export const BrandLink = styled.a`
+export const BrandLink = styled(RouterLink)`
   width: 35vw;
   max-width: 150px;
 `;

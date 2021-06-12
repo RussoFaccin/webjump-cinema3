@@ -37,7 +37,7 @@ const Header = ({
           <Link to="/filmes">Filmes</Link>
           <Link to="/series">Series</Link>
         </Navigation>
-        <BrandLink href="/">
+        <BrandLink to="/">
           <Logo fill={textColor} />
           <Title>Cinejump!</Title>
         </BrandLink>

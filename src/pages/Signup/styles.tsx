@@ -131,3 +131,10 @@ export const Button = styled(FormButton)`
     outline: 0;
   }
 `;
+
+export const Message = styled.strong`
+    font-size: 16px;
+    font-weight: 300;
+    padding: 10px 0;
+    color: ${Colors.PRIMARY};
+`;

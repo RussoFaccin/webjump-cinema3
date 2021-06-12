@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FiLock, FiMail, FiUser } from "react-icons/fi";
+import { ErrorType, FormType } from "./types";
 import {
   BrandLink,
   Button,
@@ -10,6 +11,7 @@ import {
   HeadingAction,
   Input,
   Logo,
+  Message,
   SectionAction,
   SectionMain,
   TextAction,
@@ -18,6 +20,75 @@ import {
 
 const Signup = () => {
   const history = useHistory();
+
+  const [error, setError] = useState<ErrorType>({
+    hasError: false,
+    message: "",
+  });
+
+  const [form, setForm] = useState<FormType>({
+    Nome: "",
+    "E-mail": "",
+    Senha: "",
+  });
+
+  const mapSignupData = useCallback(() => {
+    return {
+      name: form["Nome"],
+      email: form["E-mail"],
+      password: form["Senha"],
+    };
+  }, [form]);
+
+  const postData = useCallback(async () => {
+    const response = await fetch("https://cinejump-api.herokuapp.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mapSignupData()),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      setError({
+        ...error,
+        hasError: true,
+        message: result.error,
+      });
+
+      return false;
+    }
+
+    history.push("/login");
+  }, [error, history, mapSignupData]);
+
+  const handleChange = useCallback(
+    (input) => {
+      setForm({
+        ...form,
+        [input.label]: input.value,
+      });
+    },
+    [form]
+  );
+
+  const handleSubmit = useCallback(
+    (evt) => {
+      evt.preventDefault();
+
+      setError({
+        ...error,
+        hasError: false,
+      });
+
+      if (evt.target.checkValidity()) {
+        postData();
+      }
+    },
+    [error, postData]
+  );
 
   return (
     <Container data-testid="signup-page">
@@ -35,23 +106,36 @@ const Signup = () => {
           <Logo />
           <Title>Cinejump!</Title>
         </BrandLink>
-        <Form>
+        <Form onSubmit={handleSubmit} noValidate>
           <Heading>Criar conta</Heading>
           <Input
             icon={<FiUser />}
             label="Nome"
             type="text"
             required={true}
-            validationMessage="Compo obrigatório."
+            validationMessage="Campo obrigatório."
+            actionInput={handleChange}
+            value={form["Nome"]}
           />
           <Input
             icon={<FiMail />}
             label="E-mail"
             type="email"
             required={true}
-            validationMessage="Compo obrigatório."
+            validationMessage="Campo obrigatório."
+            actionInput={handleChange}
+            value={form["E-mail"]}
           />
-          <Input icon={<FiLock />} label="Senha" />
+          <Input
+            icon={<FiLock />}
+            label="Senha"
+            type="password"
+            required
+            validationMessage="Campo obrigatório."
+            actionInput={handleChange}
+            value={form["Senha"]}
+          />
+          {error.hasError ? <Message>{error.message}</Message> : null}
           <Button clickAction={() => false}>Cadastrar</Button>
         </Form>
       </SectionMain>

@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { Colors } from "shared/enums";
 export type Props = {
   className?: string;
@@ -6,7 +7,7 @@ export type Props = {
   background?: Colors;
   borderColor?: Colors;
   textColor?: Colors;
-  clickAction(): void;
+  clickAction(evt: any): void;
 };
 
 export type ContainerProps = {

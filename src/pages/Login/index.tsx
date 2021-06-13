@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FormStateType, ErrorType } from "./types";
 import { useAuth } from "contexts";
 import { useHistory } from "react-router-dom";
@@ -25,6 +25,8 @@ const Login = () => {
   const {
     actions: { setLogged, setUser },
   } = useAuth();
+
+  const [isMounted, setMounted] = useState(true);
 
   const [error, setError] = useState<ErrorType>({
     hasError: false,
@@ -64,7 +66,7 @@ const Login = () => {
       body: JSON.stringify(mapLoginData()),
     });
 
-    const { user } = await response.json();
+    const { user, token } = await response.json();
 
     if (!response.ok) {
       setError({
@@ -77,7 +79,7 @@ const Login = () => {
       setUser({
         name: user.name,
         email: user.email,
-        token: user.token,
+        token,
       });
 
       history.push("/");
@@ -97,12 +99,18 @@ const Login = () => {
 
       setLoading(true);
 
-      if (evt.target.checkValidity()) {
+      if (evt.target.checkValidity() && isMounted) {
         checkCredentials();
       }
     },
-    [error, checkCredentials]
+    [error, checkCredentials, isMounted]
   );
+
+  useEffect(() => {
+    return function cleanUp() {
+      setMounted(false);
+    }
+  }, [])
 
   return (
     <Container data-testid="login-page">

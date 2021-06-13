@@ -1,7 +1,7 @@
 import React from "react";
 import type { Props } from "./types";
 import { Colors } from "shared/enums";
-import { Container } from "./styles";
+import { Container, Spinner } from "./styles";
 
 const Button = ({
   className,
@@ -10,11 +10,12 @@ const Button = ({
   background = Colors.PRIMARY,
   borderColor = Colors.WHITE,
   textColor = Colors.WHITE,
-  clickAction
+  isLoading = false,
+  clickAction,
 }: Props) => {
   return (
     <Container
-    className={className}
+      className={className}
       outlined={outlined}
       backgroundColor={background}
       borderColor={borderColor}
@@ -22,6 +23,7 @@ const Button = ({
       onClick={clickAction}
     >
       {children}
+      {isLoading ? <Spinner /> : null}
     </Container>
   );
 };

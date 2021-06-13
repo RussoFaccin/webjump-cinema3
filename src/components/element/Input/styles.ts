@@ -60,7 +60,7 @@ export const TextBox = styled.input<TextBoxProps>`
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: 300;
-  outline: ${(props) => (props.error ? invalidStyle.outline : "none")};
+  border: ${(props) => (props.error ? invalidStyle.outline : "none")};
 `;
 
 export const ErrorMessage = styled.p`

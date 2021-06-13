@@ -18,6 +18,10 @@ export const Container = styled.button<ContainerProps>`
   text-transform: uppercase;
   cursor: pointer;
 
+  &:focus {
+    outline: none;
+  }
+
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     width: 360px;
     height: 72px;

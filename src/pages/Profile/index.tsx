@@ -24,6 +24,7 @@ const Profile = () => {
   });
 
   const [isLoading, setLoading] = useState(false);
+  const [isMounted, setMounted] = useState(true);
 
   const handleChange = useCallback(
     (input) => {
@@ -35,10 +36,21 @@ const Profile = () => {
     [form]
   );
 
-  const handleSubmit = useCallback((evt) => {
-    evt.preventDefault();
-    evt.target.checkValidity()
-    setLoading(true);
+  const handleSubmit = useCallback(
+    (evt) => {
+      evt.preventDefault();
+
+      if (evt.target.checkValidity() && isMounted) {
+        setLoading(true);
+      }
+    },
+    [isMounted]
+  );
+
+  useEffect(() => {
+    return function cleanUp() {
+      setMounted(false);
+    };
   }, []);
 
   return (

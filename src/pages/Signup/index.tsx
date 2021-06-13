@@ -32,6 +32,8 @@ const Signup = () => {
     Senha: "",
   });
 
+  const [isLoading, setLoading] = useState(false);
+
   const mapSignupData = useCallback(() => {
     return {
       name: form["Nome"],
@@ -57,11 +59,11 @@ const Signup = () => {
         hasError: true,
         message: result.error,
       });
-
-      return false;
+    } else {
+      history.push("/login");
     }
 
-    history.push("/login");
+    setLoading(false);
   }, [error, history, mapSignupData]);
 
   const handleChange = useCallback(
@@ -77,6 +79,8 @@ const Signup = () => {
   const handleSubmit = useCallback(
     (evt) => {
       evt.preventDefault();
+
+      setLoading(true);
 
       setError({
         ...error,
@@ -136,7 +140,9 @@ const Signup = () => {
             value={form["Senha"]}
           />
           {error.hasError ? <Message>{error.message}</Message> : null}
-          <Button clickAction={() => false}>Cadastrar</Button>
+          <Button clickAction={() => false} isLoading={isLoading}>
+            Cadastrar
+          </Button>
         </Form>
       </SectionMain>
     </Container>

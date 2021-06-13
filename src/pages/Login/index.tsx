@@ -36,6 +36,8 @@ const Login = () => {
     Senha: "",
   });
 
+  const [isLoading, setLoading] = useState(false);
+
   const handleChange = useCallback(
     (args) => {
       setFormState({
@@ -69,18 +71,19 @@ const Login = () => {
         hasError: true,
         message: "E-mail e/ou Senha incorretos. Verifique as credenciais.",
       });
+    } else {
+      setLogged(true);
 
-      return false;
+      setUser({
+        name: user.name,
+        email: user.email,
+        token: user.token,
+      });
+
+      history.push("/");
     }
 
-    setLogged(true);
-    setUser({
-      name: user.name,
-      email: user.email,
-      token: user.token,
-    });
-
-    history.push("/");
+    setLoading(false);
   }, [history, setLogged, setUser, mapLoginData]);
 
   const handleSubmit = useCallback(
@@ -91,6 +94,8 @@ const Login = () => {
         ...error,
         hasError: false,
       });
+
+      setLoading(true);
 
       if (evt.target.checkValidity()) {
         checkCredentials();
@@ -127,7 +132,9 @@ const Login = () => {
             actionInput={handleChange}
           />
           {error.hasError ? <Message>{error.message}</Message> : null}
-          <Button clickAction={() => false}>Entrar</Button>
+          <Button clickAction={() => false} isLoading={isLoading}>
+            Entrar
+          </Button>
         </Form>
       </SectionMain>
       <SectionAction>

@@ -6,6 +6,7 @@ export type Props = {
   background?: Colors;
   borderColor?: Colors;
   textColor?: Colors;
+  isLoading?: boolean;
   clickAction(evt: any): void;
 };
 

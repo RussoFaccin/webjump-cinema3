@@ -43,7 +43,7 @@ const Signup = () => {
   }, [form]);
 
   const postData = useCallback(async () => {
-    const response = await fetch("https://cinejump-api.herokuapp.com/users", {
+    const response = await fetch("https://cinejump-api-dev.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

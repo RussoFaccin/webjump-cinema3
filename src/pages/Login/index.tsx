@@ -58,7 +58,7 @@ const Login = () => {
   }, [formState]);
 
   const checkCredentials = useCallback(async () => {
-    const response = await fetch("https://cinejump-api.herokuapp.com/auth", {
+    const response = await fetch("https://cinejump-api-dev.herokuapp.com/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

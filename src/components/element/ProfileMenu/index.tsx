@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Props } from "./types";
 import { Button, Container, Link, Name } from "./styles";
 import { FiLogOut, FiHeart, FiUser } from "react-icons/fi";
 import { BrowserRouter as Router } from "react-router-dom";
 
-const ProfileMenu = ({ userName = "" }: Props) => {
+const ProfileMenu = ({
+  isVisible = false,
+  userName = "",
+  actionLogout = () => false,
+}: Props) => {
   const firstName = userName.split(" ")[0];
+
+  const setVisibility = useCallback(() => {
+    return isVisible ? " profileMenu--active" : "";
+  }, [isVisible]);
+
   return (
     <Router>
-      <Container>
+      <Container className={setVisibility()}>
         <Name>Olá, {firstName}.</Name>
         <Link to="/profile">
           <FiUser />
           Minha Conta
         </Link>
-        <Link to="/profile">
+        <Link to="/favorites">
           <FiHeart />
           Favoritos
         </Link>
-        <Button>
+        <Button onClick={actionLogout}>
           <FiLogOut />
           Sair
         </Button>

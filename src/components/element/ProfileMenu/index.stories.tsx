@@ -9,8 +9,9 @@ export default {
   component: ProfileMenu,
   argTypes: {
     userName: { control: "text" },
+    isVisible: { control: "boolean" },
   },
-} as Meta
+} as Meta;
 
 const Template: Story<Props & RouterProps> = (args) => (
   <Router>
@@ -20,5 +21,5 @@ const Template: Story<Props & RouterProps> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  userName: "Rodrigo Russo"
-}
+  userName: "Rodrigo Russo",
+};

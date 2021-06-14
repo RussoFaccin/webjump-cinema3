@@ -80,14 +80,13 @@ const Signup = () => {
     (evt) => {
       evt.preventDefault();
 
-      setLoading(true);
-
       setError({
         ...error,
         hasError: false,
       });
 
       if (evt.target.checkValidity()) {
+        setLoading(true);
         postData();
       }
     },

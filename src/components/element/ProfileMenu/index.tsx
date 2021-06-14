@@ -1,15 +1,29 @@
 import React from "react";
 import { Props } from "./types";
-import { Container, Link, Name } from "./styles";
-import { FiUser } from "react-icons/fi";
+import { Button, Container, Link, Name } from "./styles";
+import { FiLogOut, FiHeart, FiUser } from "react-icons/fi";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const ProfileMenu = ({ userName = "" }: Props) => {
   const firstName = userName.split(" ")[0];
   return (
-    <Container>
-      <Name>Olá, {firstName}.</Name>
-      <Link to="/profile"><FiUser />Minha Conta</Link>
-    </Container>
+    <Router>
+      <Container>
+        <Name>Olá, {firstName}.</Name>
+        <Link to="/profile">
+          <FiUser />
+          Minha Conta
+        </Link>
+        <Link to="/profile">
+          <FiHeart />
+          Favoritos
+        </Link>
+        <Button>
+          <FiLogOut />
+          Sair
+        </Button>
+      </Container>
+    </Router>
   );
 };
 

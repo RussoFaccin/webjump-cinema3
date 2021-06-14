@@ -7,7 +7,14 @@ export const Container = styled.section`
   background-color: ${Colors.LIGHT};
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
-  padding: 16px 0;
+  padding: 16px 0 0 16px;
+  transform-origin: right top;
+  transform: scale(0);
+  transition: all .25s ease-in;
+
+  &.profileMenu--active {
+    transform: scale(1);
+  }
 `;
 
 export const Name = styled.h3`
@@ -39,4 +46,11 @@ export const Link = styled(Anchor)`
   ${menuEntries}
 `;
 
-
+export const Button = styled.button`
+  ${menuEntries}
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: 0;
+`;

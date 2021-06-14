@@ -1,12 +1,17 @@
 import React from "react";
 import { render, RenderResult } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import ProfileMenu from "./";
 
 describe("ProfileMenu Component", () => {
   let utils: RenderResult;
 
   beforeEach(() => {
-    utils = render(<ProfileMenu />);
+    utils = render(
+      <Router>
+        <ProfileMenu />
+      </Router>
+    );
   });
 
   it("Should render the component", () => {

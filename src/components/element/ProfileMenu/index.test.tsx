@@ -2,7 +2,6 @@ import React from "react";
 import { fireEvent, render, RenderResult } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import ProfileMenu from "./";
-import { updateCommaList } from "typescript";
 
 describe("ProfileMenu Component", () => {
   let utils: RenderResult;

@@ -40,6 +40,9 @@ const Login = () => {
 
   const [isLoading, setLoading] = useState(false);
 
+  /**
+   * Handle input change action
+   */
   const handleChange = useCallback(
     (args) => {
       setFormState({
@@ -50,6 +53,9 @@ const Login = () => {
     [formState]
   );
 
+  /**
+   * Map form data to desired API format
+   */
   const mapLoginData = useCallback(() => {
     return {
       email: formState["E-mail"],
@@ -57,6 +63,9 @@ const Login = () => {
     };
   }, [formState]);
 
+  /**
+   * Send data to Login API to verify credentials
+   */
   const checkCredentials = useCallback(async () => {
     const response = await fetch("https://cinejump-api-dev.herokuapp.com/auth", {
       method: "POST",
@@ -88,6 +97,9 @@ const Login = () => {
     setLoading(false);
   }, [history, setLogged, setUser, mapLoginData]);
 
+  /**
+   * Handle form submission
+   */
   const handleSubmit = useCallback(
     (evt) => {
       evt.preventDefault();
@@ -97,9 +109,8 @@ const Login = () => {
         hasError: false,
       });
 
-      setLoading(true);
-
       if (evt.target.checkValidity() && isMounted) {
+        setLoading(true);
         checkCredentials();
       }
     },

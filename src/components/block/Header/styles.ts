@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Breakpoints } from "shared/enums";
 import { ReactComponent as Brand } from "assets/Logo-white.svg";
 import { StyleProps } from "./types";
+import { ProfileMenu as Menu } from "components/element";
 
 export const Container = styled.header<StyleProps>`
   background-color: ${props => props.background};
@@ -66,3 +67,13 @@ export const SubNav = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
+export const MenuContainer = styled.div`
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+`;
+
+export const ProfileMenu = styled(Menu)``;

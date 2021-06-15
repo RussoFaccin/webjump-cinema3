@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "contexts";
 import { BiSearch } from "react-icons/bi";
@@ -9,9 +9,11 @@ import {
   Content,
   Navigation,
   Link,
+  MenuContainer,
   SubNav,
   BrandLink,
   Logo,
+  ProfileMenu,
   Title,
 } from "./styles";
 import { CircleButton } from "components/element";
@@ -24,11 +26,15 @@ const Header = ({
   const { isLogged } = useAuth();
   const history = useHistory();
 
+  const [isMenuActive, setMenuActive] = useState(false);
+
   const handleProfile = useCallback(() => {
-    history.push(
-      isLogged ? "/profile" : "/login"
-    );
-  }, [history, isLogged]);
+    if (isLogged) {
+      setMenuActive(!isMenuActive);
+    } else {
+      history.push("/login");
+    }
+  }, [history, isLogged, isMenuActive, setMenuActive]);
 
   return (
     <Container background={background} textColor={textColor}>
@@ -50,6 +56,9 @@ const Header = ({
           </CircleButton>
         </SubNav>
       </Content>
+      <MenuContainer>
+        <ProfileMenu isVisible={isMenuActive} />
+      </MenuContainer>
     </Container>
   );
 };

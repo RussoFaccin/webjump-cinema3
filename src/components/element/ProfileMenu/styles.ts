@@ -3,6 +3,7 @@ import { Colors } from "shared/enums";
 import { Link as Anchor } from "react-router-dom";
 
 export const Container = styled.section`
+position: absolute;
   width: 208px;
   background-color: ${Colors.LIGHT};
   border-radius: 10px;
@@ -12,7 +13,7 @@ export const Container = styled.section`
   transform: scale(0);
   transition: all .25s ease-in;
 
-  &.profileMenu--active {
+  &.--active {
     transform: scale(1);
   }
 `;
@@ -53,4 +54,5 @@ export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   outline: 0;
+  border-top: 1px solid ${Colors.LIGHT};
 `;

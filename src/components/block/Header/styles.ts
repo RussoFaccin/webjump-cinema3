@@ -70,10 +70,16 @@ export const SubNav = styled.div`
 
 export const MenuContainer = styled.div`
   width: 100%;
+  max-width: 1000px;
   padding: 0 20px;
   display: flex;
   justify-content: flex-end;
   z-index: 1;
+  margin: auto;
+
+  @media screen and (min-width: ${Breakpoints.FULL}) {
+    padding: 0;
+  }
 `;
 
 export const ProfileMenu = styled(Menu)``;

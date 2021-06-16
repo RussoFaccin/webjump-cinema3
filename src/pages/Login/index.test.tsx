@@ -1,6 +1,7 @@
 import React from "react";
 import { render, RenderResult } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { AuthProvider } from "contexts";
 import Login from "./";
 
 describe("Login page component", () => {
@@ -8,9 +9,11 @@ describe("Login page component", () => {
 
   beforeEach(() => {
     utils = render(
-      <MemoryRouter>
-        <Login />
-      </MemoryRouter>
+      <AuthProvider>
+        <MemoryRouter>
+          <Login />
+        </MemoryRouter>
+      </AuthProvider>
     );
   });
 

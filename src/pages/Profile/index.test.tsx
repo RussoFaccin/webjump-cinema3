@@ -2,15 +2,18 @@ import React from "react";
 import Profile from "./index";
 import { render, RenderResult } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { AuthProvider } from "contexts";
 
 describe("Profile Page", () => {
   let utils: RenderResult;
 
   beforeEach(() => {
     utils = render(
-      <MemoryRouter>
-        <Profile />
-      </MemoryRouter>
+      <AuthProvider>
+        <MemoryRouter>
+          <Profile />
+        </MemoryRouter>
+      </AuthProvider>
     );
   });
 
@@ -31,6 +34,6 @@ describe("Profile Page", () => {
   });
 
   it("Should have 'ATUALIZAR PERFIL' Button", () => {
-    utils.getByRole("button", {name:/atualizar perfil/i});
-  })
+    utils.getByRole("button", { name: /atualizar perfil/i });
+  });
 });

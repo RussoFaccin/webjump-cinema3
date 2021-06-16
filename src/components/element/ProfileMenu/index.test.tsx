@@ -1,6 +1,7 @@
 import React from "react";
 import { fireEvent, render, RenderResult } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "contexts";
 import ProfileMenu from "./";
 
 describe("ProfileMenu Component", () => {
@@ -8,9 +9,11 @@ describe("ProfileMenu Component", () => {
 
   beforeEach(() => {
     utils = render(
-      <Router>
-        <ProfileMenu />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <ProfileMenu />
+        </Router>
+      </AuthProvider>
     );
   });
 
@@ -20,7 +23,13 @@ describe("ProfileMenu Component", () => {
 
   it("Should have 'Olá, <Nome>' text", () => {
     const userName = "John Doe";
-    utils.rerender(<ProfileMenu userName={userName} />);
+    utils.rerender(
+      <AuthProvider>
+        <Router>
+          <ProfileMenu userName={userName} />
+        </Router>
+      </AuthProvider>
+    );
     expect(utils.getByText("Olá, John.")).toBeInTheDocument();
   });
 
@@ -37,16 +46,5 @@ describe("ProfileMenu Component", () => {
   it("Should have 'Sair' button", () => {
     const buttonText = "Sair";
     utils.getByRole("button", { name: new RegExp(buttonText, "i") });
-  });
-
-  it("Should call action os logout", () => {
-    const actionLogout = jest.fn();
-    utils.rerender(<ProfileMenu actionLogout={actionLogout} />);
-
-    const logoutButton = utils.getByRole("button", { name: /sair/i });
-
-    fireEvent.click(logoutButton);
-
-    expect(actionLogout).toBeCalled();
   });
 });

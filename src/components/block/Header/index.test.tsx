@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { render, RenderResult } from "@testing-library/react";
+import { AuthProvider } from "contexts";
 import Header from "./";
 
 describe("Header Component", () => {
@@ -8,9 +9,11 @@ describe("Header Component", () => {
 
   beforeEach(() => {
     utils = render(
+      <AuthProvider>
         <Router>
-            <Header />
+          <Header />
         </Router>
+      </AuthProvider>
     );
   });
 
@@ -19,12 +22,12 @@ describe("Header Component", () => {
   });
 
   it("Should have Cinejump! heading", () => {
-    const headingText = "Cinejump!"
-    utils.getAllByRole("heading", {name: new RegExp(headingText, "i")});
+    const headingText = "Cinejump!";
+    utils.getAllByRole("heading", { name: new RegExp(headingText, "i") });
   });
 
   it("Should have Filmes & Series links", () => {
-    utils.getAllByRole("link", {name: /Filmes/i});
-    utils.getAllByRole("link", {name: /Series/i});
+    utils.getAllByRole("link", { name: /Filmes/i });
+    utils.getAllByRole("link", { name: /Series/i });
   });
 });

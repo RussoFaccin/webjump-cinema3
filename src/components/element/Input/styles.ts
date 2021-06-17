@@ -28,7 +28,7 @@ export const IconBox = styled.div`
   svg {
     width: 24px;
     height: 24px;
-    color: ${Colors.LIGHT};
+    color: ${Colors.LIGHT_TEXT};
   }
 `;
 
@@ -56,11 +56,16 @@ export const TextBox = styled.input<TextBoxProps>`
   border-radius: 10px;
   padding: 24px 24px 24px 72px;
   background-color: ${Colors.INPUT_BACKGROUND};
-  color: ${Colors.LIGHT};
+  color: ${Colors.LIGHT_TEXT};
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
   font-weight: 300;
   border: ${(props) => (props.error ? invalidStyle.outline : "none")};
+  outline: 0;
+
+  &::placeholder {
+    color: inherit;
+  }
 `;
 
 export const ErrorMessage = styled.p`

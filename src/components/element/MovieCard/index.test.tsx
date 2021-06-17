@@ -3,6 +3,7 @@ import { Movie } from "shared/types";
 import { Colors } from "shared/enums";
 import MovieCard from "./";
 import { fireEvent, render, RenderResult } from "@testing-library/react";
+import { UserContext } from "contexts";
 
 describe("Movie Card Component", () => {
   const movie: Movie = {
@@ -19,7 +20,11 @@ describe("Movie Card Component", () => {
   const actionFavorite = jest.fn();
 
   beforeEach(() => {
-    utils = render(<MovieCard {...movie} actionFavorite={actionFavorite} />);
+    utils = render(
+      <UserContext.Provider value={{ isLogged: true }}>
+        <MovieCard {...movie} actionFavorite={actionFavorite} />
+      </UserContext.Provider>
+    );
   });
 
   it("Should render the component", () => {
@@ -35,7 +40,11 @@ describe("Movie Card Component", () => {
   it("Should render favorite icon active", () => {
     movie.favorite = true;
 
-    utils.rerender(<MovieCard {...movie} actionFavorite={actionFavorite} />);
+    utils.rerender(
+      <UserContext.Provider value={{ isLogged: true }}>
+        <MovieCard {...movie} actionFavorite={actionFavorite} />
+      </UserContext.Provider>
+    );
 
     const icon = utils.getByRole("button").querySelector("svg");
 
@@ -56,7 +65,7 @@ describe("Movie Card Component", () => {
     const ret: Movie = actionFavorite.mock.calls[0][0];
 
     expect(ret.id).toBe(movie.id);
-  })
+  });
 
   it("Should change favorite icon color on click", () => {
     const favButton = utils.getByRole("button");
@@ -67,10 +76,10 @@ describe("Movie Card Component", () => {
 
     let expectation;
 
-    if (movie.favorite ) {
-      expectation = { color: 'black' };
+    if (movie.favorite) {
+      expectation = { color: "black" };
     } else {
-      expectation = { color: Colors.PRIMARY }
+      expectation = { color: Colors.PRIMARY };
     }
 
     expect(icon).toHaveStyle(expectation);

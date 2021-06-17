@@ -11,6 +11,9 @@ export default {
     isLoading: {
       control: { type: "boolean" },
     },
+    outlined: {
+      control: { type: "boolean" },
+    },
     clickAction: { action: "click" },
   },
 } as Meta;

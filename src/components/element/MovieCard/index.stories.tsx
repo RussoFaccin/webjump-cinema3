@@ -3,6 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import MovieCard from "./";
 import { Movie } from "shared/types";
 import { Props } from "./types";
+import { UserContext } from "contexts";
 
 const movie: Movie = {
   backdrop_path: "/z2UtGA1WggESspi6KOXeo66lvLx.jpg",
@@ -14,7 +15,11 @@ const movie: Movie = {
   title: "Um Lugar Silencioso - Parte II",
 };
 
-const Template: Story<Movie & Props> = (args) => <MovieCard {...args} />;
+const Template: Story<Movie & Props> = (args) => (
+  <UserContext.Provider value={{ isLogged: true }}>
+    <MovieCard {...args} />
+  </UserContext.Provider>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -41,6 +46,6 @@ export default {
       control: { type: "text" },
       name: "Backdrop url",
     },
-    actionFavorite: { action: 'click' }
+    actionFavorite: { action: "click" },
   },
 } as Meta;

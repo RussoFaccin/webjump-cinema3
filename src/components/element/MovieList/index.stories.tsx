@@ -1,6 +1,7 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { FavoritesContext } from "contexts/Movies";
+import { UserContext } from "contexts";
 import { Props } from "./types";
 import MovieList from "./";
 
@@ -10,13 +11,14 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args) => {
-  
   return (
-    <FavoritesContext.Provider
-      value={{ favoriteMovies: [], toggleFavoriteList: () => false }}
-    >
-      <MovieList {...args} />
-    </FavoritesContext.Provider>
+    <UserContext.Provider value={{ isLogged: true }}>
+      <FavoritesContext.Provider
+        value={{ favoriteMovies: [], toggleFavoriteList: () => false }}
+      >
+        <MovieList {...args} />
+      </FavoritesContext.Provider>
+    </UserContext.Provider>
   );
 };
 

@@ -1,2 +1,2 @@
 export { default as MoviesProvider } from "./Movies";
-export { default as AuthProvider, useAuth } from "./Auth";
+export { default as AuthProvider, useAuth, UserContext } from "./Auth";

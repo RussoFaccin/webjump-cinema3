@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Props } from "./types";
 import { Container, ErrorMessage, IconBox, Label, TextBox } from "./styles";
 import ErrorTolltip from "components/element/ErrorTooltip";
@@ -29,6 +29,10 @@ const Input = ({
   const handleInvalid = useCallback(() => {
     setError(true);
   }, []);
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
 
   return (
     <>

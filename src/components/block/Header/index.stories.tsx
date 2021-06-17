@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Colors } from "shared/enums";
+import { AuthProvider } from "contexts";
 import Header from "./";
 
 export default {
@@ -20,14 +21,16 @@ export default {
 
 const Template: Story = (args) => {
   return (
-    <Router>
-      <Header {...args} />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Header {...args} />
+      </Router>
+    </AuthProvider>
   );
 };
 
 export const Default = Template.bind({});
 Default.args = {
   background: Colors.PRIMARY,
-  textColor: Colors.WHITE
-}
+  textColor: Colors.WHITE,
+};

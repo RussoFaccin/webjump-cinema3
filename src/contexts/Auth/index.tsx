@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
-import { AuthType, Props, UserType } from "./types";
+import { Props, UserType } from "./types";
 
-export const UserContext = createContext({} as AuthType);
+export const UserContext = createContext({} as any);
 
 export const useAuth = () => {
   return useContext(UserContext);

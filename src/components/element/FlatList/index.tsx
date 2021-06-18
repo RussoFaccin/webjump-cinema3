@@ -1,15 +1,11 @@
 import * as React from "react";
-
-interface Props {
-  data: any[];
-  renderItem(item: any, index?: number): JSX.Element;
-}
+import { Props } from "./types";
 
 const FlatList = ({ data, renderItem }: Props) => {
   if (!data || !renderItem) {
     return null;
   }
-  
+
   const tmpList: JSX.Element[] = data.map(renderItem);
   return <>{tmpList}</>;
 };

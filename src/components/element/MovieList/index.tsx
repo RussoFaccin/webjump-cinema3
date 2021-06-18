@@ -21,11 +21,7 @@ const MovieList = ({ isVisible = true, title, movies }: Props) => {
     [toggleFavoriteList]
   );
 
-  if (!movies || movies.length === 0) {
-    return null;
-  }
-
-  if (!isVisible) {
+  if (!movies || movies.length === 0 || !isVisible) {
     return null;
   }
 

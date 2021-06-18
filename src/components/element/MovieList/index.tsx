@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { MovieCard } from "components/element";
-import { ScrollDrag } from "components/element";
+import { FlatList, ScrollDrag } from "components/element";
 import { Container, Heading } from "./styles";
 import { Props } from "./types";
 import { FavoritesContext } from "contexts/Movies";
@@ -8,8 +8,8 @@ import { FavoritesContext } from "contexts/Movies";
 const MovieList = ({ isVisible = true, title, movies }: Props) => {
   const { toggleFavoriteList } = useContext(FavoritesContext);
 
-  const renderList = useCallback(() => {
-    const tmpList = movies.map((movie, index) => {
+  const renderItem = useCallback(
+    (movie, index) => {
       return (
         <MovieCard
           key={`${movie.id}_${index}`}
@@ -17,10 +17,9 @@ const MovieList = ({ isVisible = true, title, movies }: Props) => {
           actionFavorite={toggleFavoriteList}
         />
       );
-    });
-
-    return tmpList.length > 0 ? tmpList : <p>Nenhum filme na lista.</p>;
-  }, [movies, toggleFavoriteList]);
+    },
+    [toggleFavoriteList]
+  );
 
   if (!movies || movies.length === 0) {
     return null;
@@ -34,7 +33,7 @@ const MovieList = ({ isVisible = true, title, movies }: Props) => {
     <Container>
       <Heading>{title}</Heading>
       <ScrollDrag>
-        {renderList()}
+        <FlatList data={movies} renderItem={renderItem} />
       </ScrollDrag>
     </Container>
   );

@@ -67,7 +67,7 @@ const Login = () => {
    * Send data to Login API to verify credentials
    */
   const checkCredentials = useCallback(async () => {
-    const response = await fetch("https://cinejump-api-dev.herokuapp.com/auth", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

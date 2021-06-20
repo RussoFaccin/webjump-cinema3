@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e3bcadce.chunk.css","sources":["webpack:///.storybook/global.css"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');\n\nhtml {\n    font-family: 'Ubuntu', sans-serif;\n    font-size: 10px;\n}"],"mappings":";AAEA;AACA;AACA;AACA;","sourceRoot":""}

@@ -29,7 +29,7 @@ const Home = () => {
         <MoviesProvider />
       </Content>
       <Footer />
-      {process.env.REACT_APP_IS_PRODUCTION ? (
+      {process.env.REACT_APP_IS_PRODUCTION === "false" ? (
         <Environment>Ambiente: Desenvolvimento</Environment>
       ) : null}
     </>

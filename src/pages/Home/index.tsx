@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Header, Footer } from "components/block";
-import { Content } from "./styles";
+import { Content, Environment } from "./styles";
 import { Highlights } from "components/block";
 import { Data } from "services";
 import { Movie } from "shared/types";
@@ -16,6 +16,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    console.log(JSON.stringify(process.env));
+
     getUpcomingMovies();
   }, [getUpcomingMovies]);
 
@@ -27,6 +29,9 @@ const Home = () => {
         <MoviesProvider />
       </Content>
       <Footer />
+      {process.env.REACT_APP_IS_PRODUCTION ? (
+        <Environment>Ambiente: Desenvolvimento</Environment>
+      ) : null}
     </>
   );
 };

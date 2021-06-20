@@ -1,10 +1,10 @@
 import { api, API_CONFIG } from "services/api";
-import { Movie } from 'shared/types';
-import { DataType } from './types';
+import { Movie } from "shared/types";
+import { DataType } from "./types";
 
 export const Data: DataType = {
   async getMovieList(urlKey) {
-    const movieList = await api.get(`/${urlKey}`, API_CONFIG);
+    const movieList = await api.get(`/movie/${urlKey}`, API_CONFIG);
     return movieList.data.results;
   },
   formatDataAPI(dataEntry, qtyLimit = 0): Movie[] {
@@ -13,8 +13,8 @@ export const Data: DataType = {
       POSTER = "w342",
     }
 
-    const BACKDROP_URL = `https://image.tmdb.org/t/p/${ImageSizes.BACKDROP}`;
-    const POSTER_URL = `https://image.tmdb.org/t/p/${ImageSizes.POSTER}`;
+    const BACKDROP_URL = `${process.env.REACT_APP_TMDB_IMAGE_URL}/${ImageSizes.BACKDROP}`;
+    const POSTER_URL = `${process.env.REACT_APP_TMDB_IMAGE_URL}/${ImageSizes.POSTER}`;
 
     const tmpList = dataEntry.map((movie: Movie) => {
       movie.backdrop_path = `${BACKDROP_URL}${movie.backdrop_path}`;

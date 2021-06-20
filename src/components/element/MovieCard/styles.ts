@@ -10,6 +10,7 @@ const SrOnly = `
 `;
 
 export const Container = styled.article`
+  position: relative;
   flex: none;
   width: 105px;
   height: 157px;

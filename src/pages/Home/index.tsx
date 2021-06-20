@@ -1,21 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Header, Footer } from "components/block";
-import { Content } from "./styles";
-import { MovieList } from "components/element";
+import { Content, Environment } from "./styles";
 import { Highlights } from "components/block";
 import { Data } from "services";
 import { Movie } from "shared/types";
-import { FavoritesProvider } from "contexts";
+import { MoviesProvider } from "contexts";
 
 const Home = () => {
-  // Popular Movies
-  const [popularMovies, setPopular] = useState<Movie[]>([]);
-
-  const getPopularMovies = useCallback(async () => {
-    const result = await Data.getMovieList("popular");
-    setPopular(Data.formatDataAPI(result));
-  }, []);
-
   // Upcoming Movies
   const [upcomingMovies, setUpcoming] = useState<Movie[]>([]);
 
@@ -24,31 +15,23 @@ const Home = () => {
     setUpcoming(Data.formatDataAPI(result));
   }, []);
 
-  // Now Playing Movies
-  const [nowPlayingMovies, setNowPlaying] = useState<Movie[]>([]);
-
-  const getNowPlayingMovies = useCallback(async () => {
-    const result = await Data.getMovieList("now_playing");
-    setNowPlaying(Data.formatDataAPI(result));
-  }, []);
-
   useEffect(() => {
-    getPopularMovies();
+    console.log(JSON.stringify(process.env));
+
     getUpcomingMovies();
-    getNowPlayingMovies();
-  }, [getPopularMovies, getUpcomingMovies, getNowPlayingMovies]);
+  }, [getUpcomingMovies]);
 
   return (
     <>
       <Header />
       <Content>
         <Highlights movieList={upcomingMovies} />
-        <FavoritesProvider>
-          <MovieList title="Populares" movies={popularMovies} />
-          <MovieList title="Em Exibição" movies={nowPlayingMovies} />
-        </FavoritesProvider>
+        <MoviesProvider />
       </Content>
       <Footer />
+      {process.env.REACT_APP_IS_PRODUCTION ? (
+        <Environment>Ambiente: Desenvolvimento</Environment>
+      ) : null}
     </>
   );
 };

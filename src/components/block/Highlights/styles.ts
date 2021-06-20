@@ -7,6 +7,7 @@ const Card = styled.div`
 `;
 
 export const Container = styled.section`
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 85vw auto;
@@ -45,10 +46,12 @@ export const CardPicture = styled.img`
 `;
 
 export const CardMain = styled(Card)`
+  position: relative;
   grid-area: latestMain;
 `;
 
 export const CardSecondary = styled(Card)`
+  position: relative;
   grid-area: latestSecondaryFirst;
   height: 35vw;
 
@@ -58,6 +61,7 @@ export const CardSecondary = styled(Card)`
 `;
 
 export const CardTertiary = styled(Card)`
+  position: relative;
   grid-area: latestSecondaryLast;
   height: 35vw;
 
@@ -78,7 +82,8 @@ export const Description = styled.div`
 export const Title = styled.h4`
   font-size: 1.2rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1;
+  margin: 0;
 
   @media screen and (min-width: ${Breakpoints.TABLET}) {
     font-size: 1.7rem;

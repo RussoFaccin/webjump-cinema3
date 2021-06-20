@@ -1,8 +1,8 @@
-export const API_BASE_URL = `https://api.themoviedb.org/3/movie`;
+export const API_BASE_URL = process.env.REACT_APP_TMDB_API_URL;
 
 export const API_CONFIG = {
     params: {
-        api_key: '9bdbe0d2ea2bf08fde5362886910de08',
+        api_key: process.env.REACT_APP_TMDB_API_KEY,
         language: 'pt-BR',
         region: 'BR'
     }

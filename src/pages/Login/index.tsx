@@ -150,7 +150,7 @@ const Login = () => {
             value={formState["Senha"]}
             actionInput={handleChange}
           />
-          {error.hasError ? <Message>{error.message}</Message> : null}
+          {error.hasError ? <Message data-testid="error-message">{error.message}</Message> : null}
           <Button clickAction={() => false} isLoading={isLoading}>
             Entrar
           </Button>

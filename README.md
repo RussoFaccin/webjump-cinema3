@@ -1,13 +1,14 @@
 ## Cinejump!
 
-**Academia Webjump - Trilha 2**
-Projeto final da Trilha 2
+**Academia Webjump - Trilha 3**
+
+Projeto final da Trilha 3
 
 Repositório:
-https://github.com/RussoFaccin/webjump-cinema2
+https://github.com/RussoFaccin/webjump-cinema3
 
 Demonstração:
-https://cinejumpii.netlify.app/
+https://cinejump.netlify.app/
 
 ![Cinejump!](https://i.ibb.co/CVkMhxY/cinejump-layout.jpg)
 
@@ -16,13 +17,13 @@ https://cinejumpii.netlify.app/
 - Clone o repositório
 
 ```
-$: git clone https://github.com/RussoFaccin/webjump-cinema2.git
+$: git clone https://github.com/RussoFaccin/webjump-cinema3.git
 ```
 
 - Instale as dependências
 
 ```
-$: cd webjump-cinema
+$: cd webjump-cinema3
 $: npm install
 ```
 

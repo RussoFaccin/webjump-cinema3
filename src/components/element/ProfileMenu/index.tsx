@@ -11,7 +11,8 @@ const ProfileMenu = ({ isVisible = true, userName = "" }: Props) => {
     actions: { setLogged },
   } = useAuth();
 
-  const firstName = userName !== "" ? userName.split(" ")[0] : user?.name;
+  // const name = 
+  const firstName = (userName !== "" ? userName : user?.name).split(" ")[0];
 
   const [isActive, setActive] = useState(isVisible);
 
